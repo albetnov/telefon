@@ -15,11 +15,12 @@ class Telepon extends Migration
     {
         Schema::create('telepon', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('nomor', false, true);
+            $table->bigInteger('nomor', false, true)->unique();
             $table->string('nama_nomor', 225);
             $table->string('alamat', 225);
             $table->longText('deskripsi');
-            $table->string('created_by', 225);
+            $table->unsignedBigInteger("created_by_id");
+            $table->foreign('created_by_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class Telepon extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('telepon');
     }
 }
