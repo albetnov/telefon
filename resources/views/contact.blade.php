@@ -31,7 +31,7 @@
                                     <img src="{{ asset('guest') }}/img/svg/paint-palette.svg" alt="img">
                                 </div>
                                 <div class="card-body">
-                                    <h4>Nomor: {{ $ct->nomor }}</h4>
+                                    <h4>Nomor: ({{ $ct->code }}) {{ $ct->nomor }}</h4>
                                     <p>Nama: {{ $ct->nama_nomor }}<br>
                                         Alamat: {{ $ct->alamat }}<br>
                                         Di Buat: {{ $ct->nama }}</p>

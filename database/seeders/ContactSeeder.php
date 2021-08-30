@@ -22,6 +22,7 @@ class ContactSeeder extends Seeder
                 'alamat' => 'Jl. Mana saja Blok U No 33',
                 'deskripsi' => 'Nama saya Asep. Saya merupakan Asep Surasep.',
                 'created_by_id' => '1',
+                'country_code' => '1',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
@@ -32,6 +33,7 @@ class ContactSeeder extends Seeder
                 'alamat' => 'Jl. Mana saja Blok Z No 22',
                 'deskripsi' => 'Nama saya Kepin. Saya merupakan Kepin Djaya.',
                 'created_by_id' => '2',
+                'country_id' => '2',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
@@ -41,6 +43,7 @@ class ContactSeeder extends Seeder
                 'nama_nomor' => 'Saya Siapa?',
                 'alamat' => 'Jl. Mana saja Blok K No 99',
                 'deskripsi' => 'Kamu Siapa? Saya Siapa? Saya dimana?.',
+                'country_id' => '3',
                 'created_by_id' => '1',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')

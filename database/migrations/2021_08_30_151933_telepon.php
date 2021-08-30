@@ -20,6 +20,8 @@ class Telepon extends Migration
             $table->string('alamat', 225);
             $table->longText('deskripsi');
             $table->unsignedBigInteger("created_by_id");
+            $table->unsignedBigInteger('country_code');
+            $table->foreign('country_code')->references('id')->on('country_code')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('created_by_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
