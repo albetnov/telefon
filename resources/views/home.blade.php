@@ -177,8 +177,7 @@
             <div class="container" data-aos="fade-up">
                 <div class="section-title text-center">
                     <h2>Contact</h2>
-                    <p class="separator">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                        doloremque</p>
+                    <p class="separator">Contact us anytime!</p>
                 </div>
 
                 <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
@@ -193,12 +192,12 @@
 
                             <div class="email">
                                 <i class="bi bi-envelope"></i>
-                                <p>info@example.com</p>
+                                <p>cs@halo.com</p>
                             </div>
 
                             <div>
                                 <i class="bi bi-phone"></i>
-                                <p>+1 5589 55488 55s</p>
+                                <p>+08 77770 1892</p>
                             </div>
                         </div>
 

@@ -108,7 +108,7 @@
 
         <div class="copyrights">
             <div class="container">
-                <p>&copy; Copyrights Halo! All rights reserved.</p>
+                <p>&copy; 2021 Copyrights Halo! All rights reserved.</p>
                 <div class="credits">
                     <p>Created by: <a href="https://github.com/albetnov">Albet Novendo</a> & <a
                             href="https://github.com/Hernando17">Hernando</a></p>

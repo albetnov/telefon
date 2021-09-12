@@ -7,13 +7,8 @@ use App\Models\Contact;
 
 class ContactController extends Controller
 {
-    public function __construct()
-    {
-        $this->Contact = new Contact();
-    }
-
     public function index()
     {
-        return view('contact', ['contact' => $this->Contact->get_contact()]);
+        return view('contact', ['contact' => Contact::with('con_code', 'user_by')->lazy()]);
     }
 }
