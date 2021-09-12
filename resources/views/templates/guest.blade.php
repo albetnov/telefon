@@ -43,13 +43,13 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto {{ request()->is('/') ? ' active' : '' }}"
+                    <li><a class="nav-link scrollto {{ strpos(Route::currentRouteName(), 'home') === 0 ? 'active' : '' }}"
                             href="{{ route('home') }}#hero">Home</a>
                     </li>
                     <li><a class="nav-link scrollto" href="{{ route('home') }}#about-us">Tentang</a></li>
                     <li><a class="nav-link scrollto" href="{{ route('home') }}#features">Fitur</a></li>
                     <li><a class="nav-link scrollto" href="{{ route('home') }}#team">Tim Kami</a></li>
-                    <li><a class="nav-link {{ request()->is('contact') ? ' active' : '' }}"
+                    <li><a class="nav-link {{ strpos(Route::currentRouteName(), 'contact') === 0 ? 'active' : '' }}"
                             href="{{ route('contact') }}">Contact List</a></li>
                     <li><a class="nav-link scrollto" href="#">Login</a></li>
                     <li><a class="nav-link scrollto" href="{{ route('home') }}#contact">Contact</a></li>

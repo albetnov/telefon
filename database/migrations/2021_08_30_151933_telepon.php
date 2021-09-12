@@ -19,7 +19,7 @@ class Telepon extends Migration
             $table->string('nama_nomor', 225);
             $table->string('alamat', 225);
             $table->longText('deskripsi');
-            $table->string('photo', 225);
+            $table->string('photo', 225)->nullable();
             $table->unsignedBigInteger("created_by_id");
             $table->unsignedBigInteger('country_code');
             $table->foreign('country_code')->references('id')->on('country_code')->onUpdate('cascade')->onDelete('cascade');

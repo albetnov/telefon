@@ -10,6 +10,5 @@ class CountryCode extends Model
     use HasFactory;
     protected $table = 'country_code';
     protected $primaryKey = 'id';
-    protected $guarded = [];
     protected $fillable = ['code', 'country'];
 }

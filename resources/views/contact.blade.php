@@ -1,5 +1,5 @@
 @extends('templates.guest')
-@section('title', 'Contoh')
+@section('title', 'Contact List')
 @section('content')
     <main id="main">
 
@@ -26,9 +26,13 @@
                 <div class="row" data-aos="fade-up" data-aos-delay="50">
                     @foreach ($contact as $ct)
                         <div class="col-md-6 col-lg-3">
-                            <div class="card">
+                            <div class="card m-1">
                                 <div class="card-header">
-                                    <img src="{{ asset('guest') }}/img/svg/paint-palette.svg" alt="img">
+                                    @if (empty($ct->photo))
+                                        <img src="{{ asset('guest') }}/img/svg/paint-palette.svg" alt="img">
+                                    @else
+                                        <img src="{{ asset('guest') }}/img/{{ $ct->photo }}" alt="img">
+                                    @endif
                                 </div>
                                 <div class="card-body">
                                     <h4>Nomor: ({{ $ct->con_code->code }}) {{ $ct->nomor }}</h4>

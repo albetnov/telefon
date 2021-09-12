@@ -12,8 +12,8 @@ class Contact extends Model
     use HasFactory;
     protected $table = 'telepon';
     protected $primaryKey = 'id';
-    protected $guarded = [];
-    protected $fillable = ['nomor', 'nama_nomor', 'alamat', 'deskripsi', 'created_by_id', 'country_code'];
+    protected $guard = ['id', 'created_at', 'updated_at'];
+    protected $fillable = ['nomor', 'nama_nomor', 'alamat', 'deskripsi', 'photo', 'created_by_id', 'country_code'];
     public function con_code()
     {
         return $this->belongsTo(CountryCode::class, 'country_code');
