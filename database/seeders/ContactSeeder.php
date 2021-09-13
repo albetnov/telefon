@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class ContactSeeder extends Seeder
 {
@@ -19,6 +20,7 @@ class ContactSeeder extends Seeder
                 'id' => '1',
                 'nomor' => '0822334455',
                 'nama_nomor' => 'Asep Surasep',
+                'slug' => Str::slug('Asep Surasep', '-'),
                 'alamat' => 'Jl. Mana saja Blok U No 33',
                 'deskripsi' => 'Nama saya Asep. Saya merupakan Asep Surasep.',
                 'created_by_id' => '1',
@@ -30,6 +32,7 @@ class ContactSeeder extends Seeder
                 'id' => '2',
                 'nomor' => '0877224681',
                 'nama_nomor' => 'Kepin Djaya',
+                'slug' => Str::slug('Kepin Djaya', '-'),
                 'alamat' => 'Jl. Mana saja Blok Z No 22',
                 'deskripsi' => 'Nama saya Kepin. Saya merupakan Kepin Djaya.',
                 'created_by_id' => '2',
@@ -41,6 +44,7 @@ class ContactSeeder extends Seeder
                 'id' => '3',
                 'nomor' => '0824571810',
                 'nama_nomor' => 'Saya Siapa?',
+                'slug' => Str::slug('Saya Siapa?', '-'),
                 'alamat' => 'Jl. Mana saja Blok K No 99',
                 'deskripsi' => 'Kamu Siapa? Saya Siapa? Saya dimana?.',
                 'country_id' => '3',

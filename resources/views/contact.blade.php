@@ -41,7 +41,8 @@
                                         Di Buat: {{ $ct->user_by->nama }}</p>
                                 </div>
                                 <div class="card-footer">
-                                    <button class="btn btn-sm btn-primary">View</button>
+                                    <button class="btn btn-sm btn-primary"
+                                        onclick="location.href='{{ route('gdetail', $ct->slug) }}'">View</button>
                                 </div>
                             </div>
                         </div>

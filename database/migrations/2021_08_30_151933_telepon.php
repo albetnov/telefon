@@ -17,6 +17,7 @@ class Telepon extends Migration
             $table->id();
             $table->bigInteger('nomor', false, true)->unique();
             $table->string('nama_nomor', 225);
+            $table->string('slug', 225);
             $table->string('alamat', 225);
             $table->longText('deskripsi');
             $table->string('photo', 225)->nullable();
