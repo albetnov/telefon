@@ -14,6 +14,13 @@
                         <li>Contact List</li>
                     </ol>
                 </div>
+                <form action="{{ route('search','') }}" method="GET">
+                    <div class="form-group">
+                        <input type="search" class="form-control form-control-sm w-25" name="query">
+                        <button class="btn-success mt-1" style="padding:7px;border:none;border-radius:10px;"><i
+                                class="bi bi-search"></i> Search</button>
+                    </div>
+                </form>
 
             </div>
         </section><!-- End Breadcrumbs -->

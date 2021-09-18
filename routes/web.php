@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ContactController;
-use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,5 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'home')->name('home');
+Route::post('/send_contact', [ContactController::class, 'send_contact'])->name('send_contact');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/contact/detail/{contact:slug}', [ContactController::class, 'contact_detail'])->name('gdetail');
+Route::get('/search', [ContactController::class, 'search_contact'])->name('search');

@@ -8,7 +8,7 @@
     <title>@yield('title')</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicons -->
     <link href="{{ asset('guest') }}/img/favicon.png" rel="icon">
     <link href="{{ asset('guest') }}/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -27,6 +27,7 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('guest') }}/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('guest/vendor/toastr/toastr.min.css') }}">
 </head>
 
 <body>
@@ -125,11 +126,13 @@
     <script src="{{ asset('guest') }}/vendor/aos/aos.js"></script>
     <script src="{{ asset('guest') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('guest') }}/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="{{ asset('guest') }}/vendor/php-email-form/validate.js"></script>
     <script src="{{ asset('guest') }}/vendor/swiper/swiper-bundle.min.js"></script>
 
     <!-- Template Main JS File -->
     <script src="{{ asset('guest') }}/js/main.js"></script>
+    <script src="{{ asset('guest') }}/js/jquery.js"></script>
+    <script src="{{ asset('guest/vendor/toastr/toastr.min.js') }}"></script>
+    @stack('scripts')
 
 </body>
 
