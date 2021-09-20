@@ -177,8 +177,7 @@
             <div class="container" data-aos="fade-up">
                 <div class="section-title text-center">
                     <h2>Contact</h2>
-                    <p class="separator">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                        doloremque</p>
+                    <p class="separator">Contact us anytime!</p>
                 </div>
 
                 <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
@@ -193,12 +192,12 @@
 
                             <div class="email">
                                 <i class="bi bi-envelope"></i>
-                                <p>info@example.com</p>
+                                <p>cs@halo.com</p>
                             </div>
 
                             <div>
                                 <i class="bi bi-phone"></i>
-                                <p>+1 5589 55488 55s</p>
+                                <p>+08 77770 1892</p>
                             </div>
                         </div>
 
@@ -213,29 +212,29 @@
 
                     <div class="col-lg-5 col-md-8">
                         <div class="form">
-                            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            <form action="" method="post" role="form" id="cs_form" class="php-email-form">
+                                @csrf
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                                        required>
+                                    <input type="text" name="nama_cs" class="form-control" id="name_cs"
+                                        placeholder="Your Name" required>
+                                    <span class="text-danger error-text name_cs_error"></span>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <input type="email" class="form-control" name="email" id="email"
+                                    <input type="email" class="form-control" name="email_cs" id="email_cs"
                                         placeholder="Your Email" required>
+                                    <span class="text-danger sm error-text email_cs_error"></span>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <input type="text" class="form-control" name="subject" id="subject"
+                                    <input type="text" class="form-control" name="subject_cs" id="subject_cs"
                                         placeholder="Subject" required>
+                                    <span class="text-danger error-text subject_cs_error"></span>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <textarea class="form-control" name="message" rows="5" placeholder="Message"
+                                    <textarea class="form-control" name="message_cs" rows="5" placeholder="Message"
                                         required></textarea>
+                                    <span class="text-danger error-text message_cs_error"></span>
                                 </div>
-                                <div class="my-3">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your message has been sent. Thank you!</div>
-                                </div>
-                                <div class="text-center"><button type="submit">Send Message</button></div>
+                                <div class="text-center mt-1"><button type="submit">Send Message</button></div>
                             </form>
                         </div>
                     </div>
@@ -246,3 +245,41 @@
     </main><!-- End #main -->
 
 @endsection
+@push('scripts')
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $(function() {
+
+            $("#cs_form").on('submit', function(e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: "{{ route('send_contact') }}",
+                    method: $(this).attr('method'),
+                    data: new FormData(this),
+                    processData: false,
+                    dataType: 'json',
+                    contentType: false,
+                    beforeSend: function() {
+                        $(document).find('span.error-text').text('');
+                    },
+                    success: function(data) {
+                        if (data.status == 0) {
+                            $.each(data.error, function(prefix, val) {
+                                $('span.' + prefix + '_error').text(val[0]);
+                            });
+                        } else {
+                            $('#cs_form')[0].reset();
+                            toastr["success"](data.msg);
+                        }
+                    }
+                });
+            });
+
+        });
+    </script>
+@endpush

@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Artisan::command('dev:deploy', function () {
+    $this->info('Building/Deploying the app');
+})->purpose('Build/Deploy the app.');
