@@ -19,3 +19,5 @@ Route::post('/send_contact', [ContactController::class, 'send_contact'])->name('
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/contact/detail/{contact:slug}', [ContactController::class, 'contact_detail'])->name('gdetail');
 Route::get('/search', [ContactController::class, 'search_contact'])->name('search');
+
+require_once 'auth.php';
