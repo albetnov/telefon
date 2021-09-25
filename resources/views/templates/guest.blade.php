@@ -52,7 +52,17 @@
                     <li><a class="nav-link scrollto" href="{{ route('home') }}#team">Tim Kami</a></li>
                     <li><a class="nav-link {{ strpos(Route::currentRouteName(), 'contact') === 0 ? 'active' : '' }}"
                             href="{{ route('contact') }}">Contact List</a></li>
-                    <li><a class="nav-link scrollto" href="#">Login</a></li>
+                    @auth
+                        @if (Auth::user()->level === 'admin')
+                            <li><a class="nav-link"
+                                    href="{{ route('adm_dashboard') }}">{{ Auth::user()->nama }}</a></li>
+                        @else
+                            <li><a class="nav-link"
+                                    href="{{ route('usr_dashboard') }}">{{ Auth::user()->nama }}</a></li>
+                        @endif
+                    @else
+                        <li><a class="nav-link scrollto" href="{{ route('login') }}">Login</a></li>
+                    @endauth
                     <li><a class="nav-link scrollto" href="{{ route('home') }}#contact">Contact</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
