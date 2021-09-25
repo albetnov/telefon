@@ -10,7 +10,7 @@
     <meta content="" name="keywords">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicons -->
-    <link href="{{ asset('guest') }}/img/favicon.png" rel="icon">
+    <link href="{{ asset('guest') }}/img/logoHalo!.png" rel="icon">
     <link href="{{ asset('guest') }}/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -45,25 +45,15 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto {{ strpos(Route::currentRouteName(), 'home') === 0 ? 'active' : '' }}"
-                            href="{{ route('home') }}#hero">Home</a>
+                            href="{{ route('home') }}#hero">Beranda</a>
                     </li>
                     <li><a class="nav-link scrollto" href="{{ route('home') }}#about-us">Tentang</a></li>
                     <li><a class="nav-link scrollto" href="{{ route('home') }}#features">Fitur</a></li>
                     <li><a class="nav-link scrollto" href="{{ route('home') }}#team">Tim Kami</a></li>
                     <li><a class="nav-link {{ strpos(Route::currentRouteName(), 'contact') === 0 ? 'active' : '' }}"
-                            href="{{ route('contact') }}">Contact List</a></li>
-                    @auth
-                        @if (Auth::user()->level === 'admin')
-                            <li><a class="nav-link"
-                                    href="{{ route('adm_dashboard') }}">{{ Auth::user()->nama }}</a></li>
-                        @else
-                            <li><a class="nav-link"
-                                    href="{{ route('usr_dashboard') }}">{{ Auth::user()->nama }}</a></li>
-                        @endif
-                    @else
-                        <li><a class="nav-link scrollto" href="{{ route('login') }}">Login</a></li>
-                    @endauth
-                    <li><a class="nav-link scrollto" href="{{ route('home') }}#contact">Contact</a></li>
+                            href="{{ route('contact') }}">Cari Kontak</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('login') }}">Masuk</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('home') }}#contact">Kontak</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -79,7 +69,7 @@
                     <div class="footer-logo">
 
                         <a class="navbar-brand" href="#">Halo!</a>
-                        <p>Website yang dapat menampilkan kontak yang ingin anda cari!</p>
+                        <p>Website pencari nomor kontak</p>
 
                     </div>
                 </div>

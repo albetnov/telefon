@@ -4,10 +4,10 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero">
         <div class="hero-container" data-aos="fade-in">
-            <h1 style="margin-top: 4.8%">Welcome to Halo!</h1>
-            <h2>Dapatkan Nomor HP siapa saja yang kamu mau!</h2>
+            <h1 style="margin-top: 4.8%">Selamat datang di Halo!</h1>
+            <h2>Dapatkan kontak yang anda inginkan</h2>
             <img src="{{ asset('guest') }}/img/hero-img.png" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">
-            <a href="#get-started" class="btn-get-started scrollto">Mulai Cari!</a>
+            <a href="#get-started" class="btn-get-started scrollto">Mulai Cari</a>
         </div>
     </section><!-- End Hero Section -->
 
@@ -18,10 +18,9 @@
 
             <div class="container" data-aos="fade-up">
                 <div class="section-title text-center">
-
-                    <h2>Dapatkan Kontak disini! </h2>
-                    <p class="separator">Iya disini! Kalau bukan disini dimana lagi...</p>
-
+                    <h2>Keunggulan Halo!</h2>
+                    <br>
+                    {{-- <p  class="separator">Iya di sini! Kalau bukan disini dimana lagi...</p> --}}
                 </div>
             </div>
 
@@ -32,15 +31,15 @@
                         <div class="feature-block">
                             <img src="{{ asset('guest') }}/img/svg/cloud.svg" alt="img">
                             <h4>Kontak Lengkap</h4>
-                            <p>Kami menyediakan daftar kontak yang lengkap di server kami!</p>
+                            <p>Kami menyediakan daftar kontak yang lengkap di server kami</p>
                         </div>
                     </div>
 
                     <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
                         <div class="feature-block">
                             <img src="{{ asset('guest') }}/img/svg/planet.svg" alt="img">
-                            <h4>Seluruh Dunia!</h4>
-                            <p>Meskipun web kami memakai Bahasa Indonesia, Kami juga memiliki kontak dari seluruh dunia!</p>
+                            <h4>Seluruh Dunia</h4>
+                            <p>Meskipun web kami memakai Bahasa Indonesia, Kami juga memiliki kontak dari seluruh dunia</p>
                         </div>
                     </div>
 
@@ -49,7 +48,7 @@
 
                             <img src="{{ asset('guest') }}/img/svg/asteroid.svg" alt="img">
                             <h4>Aman dan Nyaman</h4>
-                            <p>Kamu bisa memasukkan nomormu disini dengan Aman dan Nyaman!</p>
+                            <p>Nomor yang kami daftarkan merupakan nomor yang telah terverifikasi oleh team Halo! dan Anda juga dapat mendaftarkan nomor anda di website kami</p>
                         </div>
                     </div>
 
@@ -72,13 +71,15 @@
                         <div class="about-content" data-aos="fade-left" data-aos-delay="100">
 
                             <h2>Apa sih <span>Halo!</span>?</h2>
-                            <p>Halo merupakan tempat menyimpan/mencari kontak di internet!
+                            <br>
+                            <br>
+                            <p>Halo merupakan tempat menyimpan/mencari kontak di internet,
                                 Di Halo! kamu bisa dengan mudah mencari kontak dan informasi tentang kontak
-                                tersebut sesuai kebutuhan kamu!
+                                tersebut sesuai kebutuhan kamu.
 
-                                Jadi apalagi? Ayok daftar sekarang!
+                                Jadi tunggu apalagi? Ayo daftar sekarang!
                             </p>
-                            <button class="btn btn-success">Register</button>
+                            <button class="btn btn-success">Daftar</button>
                         </div>
                     </div>
 
@@ -101,7 +102,7 @@
                         <div class="feature-block">
                             <img src="{{ asset('guest') }}/img/svg/paint-palette.svg" alt="img">
                             <h4>Desain yang menarik!</h4>
-                            <p>Desain yang kami gunakan itu menarik dan mudah untuk digunakan!</p>
+                            <p>Desain yang kami gunakan itu menarik dan mudah untuk digunakan</p>
                         </div>
                     </div>
 
@@ -109,7 +110,7 @@
                         <div class="feature-block">
                             <img src="{{ asset('guest') }}/img/svg/design-tool.svg" alt="img">
                             <h4>Mudah digunakan</h4>
-                            <p>Tinggal login aja udah.</p>
+                            <p>Tinggal Daftar dan Masuk kemudian cari kontak</p>
                         </div>
                     </div>
 
@@ -117,7 +118,7 @@
                         <div class="feature-block">
                             <img src="{{ asset('guest') }}/img/svg/code.svg" alt="img">
                             <h4>Data Aman dan Terjaga</h4>
-                            <p>Datamu akan aman dan terjaga dan hanya user yang login yang bisa lihat!</p>
+                            <p>Data anda akan aman dan terjaga dan hanya user yang login yang dapat melihat</p>
                         </div>
                     </div>
 
@@ -176,8 +177,9 @@
 
             <div class="container" data-aos="fade-up">
                 <div class="section-title text-center">
-                    <h2>Contact</h2>
-                    <p class="separator">Contact us anytime!</p>
+                    <h2>Kontak</h2>
+                    <br>
+                    {{-- <p class="separator">Contact us anytime!</p> --}}
                 </div>
 
                 <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
@@ -187,7 +189,7 @@
                         <div class="info">
                             <div>
                                 <i class="bi bi-geo-alt"></i>
-                                <p>A108 Adam Street<br>New York, NY 535022</p>
+                                <p><br>Jl. Kuda Laut, Sungai Jodoh, Kec. Batu Ampar, Kota Batam, Kepulauan Riau 29451</p>
                             </div>
 
                             <div class="email">
@@ -216,25 +218,25 @@
                                 @csrf
                                 <div class="form-group">
                                     <input type="text" name="nama_cs" class="form-control" id="name_cs"
-                                        placeholder="Your Name" required>
+                                        placeholder="Nama" required>
                                     <span class="text-danger error-text name_cs_error"></span>
                                 </div>
                                 <div class="form-group mt-3">
                                     <input type="email" class="form-control" name="email_cs" id="email_cs"
-                                        placeholder="Your Email" required>
+                                        placeholder="Email" required>
                                     <span class="text-danger sm error-text email_cs_error"></span>
                                 </div>
                                 <div class="form-group mt-3">
                                     <input type="text" class="form-control" name="subject_cs" id="subject_cs"
-                                        placeholder="Subject" required>
+                                        placeholder="Subjek" required>
                                     <span class="text-danger error-text subject_cs_error"></span>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <textarea class="form-control" name="message_cs" rows="5" placeholder="Message"
+                                    <textarea class="form-control" name="message_cs" rows="5" placeholder="Pesan"
                                         required></textarea>
                                     <span class="text-danger error-text message_cs_error"></span>
                                 </div>
-                                <div class="text-center mt-1"><button type="submit">Send Message</button></div>
+                                <div class="text-center mt-1"><button type="submit">Kirim</button></div>
                             </form>
                         </div>
                     </div>

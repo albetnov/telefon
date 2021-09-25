@@ -8,11 +8,11 @@
             <div class="container">
 
                 <div class="d-flex justify-content-between align-items-center">
-                    <h2>Contact Detail</h2>
+                    <h2>Detail Kontak</h2>
                     <ol>
-                        <li><a href="{{ route('home') }}">Home</a></li>
-                        <li><a href="{{ route('contact') }}">Contact List</a></li>
-                        <li>Detail</li>
+                        <li><a href="{{ route('home') }}">Beranda</a></li>
+                        <li><a href="{{ route('contact') }}">Cari Kontak</a></li>
+                        <li>Detail Kontak</li>
                     </ol>
                 </div>
 
@@ -21,9 +21,9 @@
 
         <section class="inner-page pt-4">
             <div class="container">
-                <p>
+                {{-- <p>
                     Contact Detail
-                </p>
+                </p> --}}
                 <div class="row" data-aos="fade-up" data-aos-delay="50">
                     <div class="col m-1">
                         @if (empty($c_info->photo))
@@ -48,7 +48,7 @@
                     <div class="row m-3">
                         <div class="col">
                             <button class="btn btn-primary"
-                                onclick="location.href='{{ route('contact') }}'">Back</button>
+                                onclick="location.href='{{ route('contact') }}'">Kembali</button>
                         </div>
                     </div>
                 </div>
