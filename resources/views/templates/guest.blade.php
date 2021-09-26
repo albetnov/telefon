@@ -50,10 +50,20 @@
                     <li><a class="nav-link scrollto" href="{{ route('home') }}#about-us">Tentang</a></li>
                     <li><a class="nav-link scrollto" href="{{ route('home') }}#features">Fitur</a></li>
                     <li><a class="nav-link scrollto" href="{{ route('home') }}#team">Tim Kami</a></li>
-                    <li><a class="nav-link {{ strpos(Route::currentRouteName(), 'contact') === 0 ? 'active' : '' }}"
-                            href="{{ route('contact') }}">Cari Kontak</a></li>
-                    <li><a class="nav-link scrollto" href="{{ route('login') }}">Masuk</a></li>
-                    <li><a class="nav-link scrollto" href="{{ route('home') }}#contact">Kontak</a></li>
+                    @auth
+                        <li><a class="nav-link {{ strpos(Route::currentRouteName(), 'contact') === 0 ? 'active' : '' }}"
+                                href="{{ route('contact') }}">Cari Kontak</a></li>
+                        <li><a class="nav-link scrollto" href="{{ route('home') }}#contact">Kontak</a></li>
+                        @if (Auth::user()->level === 'admin')
+                            <li><a class="nav-link"
+                                    href="{{ route('adm_dashboard') }}">{{ Auth::user()->nama }}</a></li>
+                        @else
+                            <li><a class="nav-link"
+                                    href="{{ route('usr_dashboard') }}">{{ Auth::user()->nama }}</a></li>
+                        @endif
+                    @else
+                        <li><a class="nav-link scrollto" href="{{ route('login') }}">Masuk</a></li>
+                    @endauth
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
