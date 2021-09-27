@@ -11,12 +11,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicons -->
     <link href="{{ asset('guest') }}/img/logoHalo!.png" rel="icon">
-    <link href="{{ asset('guest') }}/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i"
-        rel="stylesheet">
+        rel="preload" as="style" onload="this.rel='stylesheet'">
 
     <!-- Vendor CSS Files -->
     <link href="{{ asset('guest') }}/vendor/aos/aos.css" rel="stylesheet">
@@ -37,9 +36,7 @@
         <div class="container d-flex align-items-center justify-content-between">
 
             <div id="logo">
-                <h1><a href="index.html"><span>Ha</span>lo!</a></h1>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html"><img src="{{ asset('guest') }}/img/logo.png" alt="" title="" /></a>-->
+                <h1><a href="{{ route('home') }}"><span>Ha</span>lo!</a></h1>
             </div>
 
             <nav id="navbar" class="navbar">
@@ -50,10 +47,10 @@
                     <li><a class="nav-link scrollto" href="{{ route('home') }}#about-us">Tentang</a></li>
                     <li><a class="nav-link scrollto" href="{{ route('home') }}#features">Fitur</a></li>
                     <li><a class="nav-link scrollto" href="{{ route('home') }}#team">Tim Kami</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('home') }}#contact">Kontak</a></li>
                     @auth
                         <li><a class="nav-link {{ strpos(Route::currentRouteName(), 'contact') === 0 ? 'active' : '' }}"
                                 href="{{ route('contact') }}">Cari Kontak</a></li>
-                        <li><a class="nav-link scrollto" href="{{ route('home') }}#contact">Kontak</a></li>
                         @if (Auth::user()->level === 'admin')
                             <li><a class="nav-link"
                                     href="{{ route('adm_dashboard') }}">{{ Auth::user()->nama }}</a></li>

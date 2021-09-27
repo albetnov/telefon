@@ -47,8 +47,13 @@
                     </div>
                     <div class="row m-3">
                         <div class="col">
-                            <button class="btn btn-primary"
-                                onclick="location.href='{{ route('contact') }}'">Kembali</button>
+                            @if (isset($_GET['from']) && $_GET['from'] === 'search')
+                                <button class="btn btn-primary"
+                                    onclick="location.href='{{ route('search') }}?query={{ $_GET['query'] }}'">Kembali</button>
+                            @else
+                                <button class="btn btn-primary"
+                                    onclick="location.href='{{ route('contact') }}'">Kembali</button>
+                            @endif
                         </div>
                     </div>
                 </div>

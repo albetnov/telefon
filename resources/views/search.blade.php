@@ -10,9 +10,9 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <h2>Search</h2>
                     <ol>
-                        <li><a href="{{ route('home') }}">Home</a></li>
-                        <li><a href="{{ route('contact') }}">Contact List</a></li>
-                        <li>Search</li>
+                        <li><a href="{{ route('home') }}">Beranda</a></li>
+                        <li><a href="{{ route('contact') }}">Cari Kontak</a></li>
+                        <li>Cari</li>
                     </ol>
                 </div>
 
@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <button class="btn btn-sm btn-primary"
-                                            onclick="location.href='{{ route('gdetail', $ds->slug) }}'">View</button>
+                                            onclick="location.href='{{ route('gdetail', $ds->slug) }}?from=search&query={{ $_GET['query'] }}'">Lihat</button>
                                     </div>
                                 </div>
                             </div>

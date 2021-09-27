@@ -4,7 +4,8 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero">
         <div class="hero-container" data-aos="fade-in">
-            <h1 style="margin-top: 4.8%">Selamat datang di Halo!</h1>
+            {{-- <h1 style="margin-top: 4.8%">Selamat datang di Halo!</h1> --}}
+            <h1 class="mt-2">Selamat datang di Halo!</h1>
             <h2>Dapatkan kontak yang anda inginkan</h2>
             <img src="{{ asset('guest') }}/img/hero-img.png" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">
             <a href="#get-started" class="btn-get-started scrollto">Mulai Cari</a>
@@ -48,7 +49,8 @@
 
                             <img src="{{ asset('guest') }}/img/svg/asteroid.svg" alt="img">
                             <h4>Aman dan Nyaman</h4>
-                            <p>Nomor yang kami daftarkan merupakan nomor yang telah terverifikasi oleh team Halo! dan Anda juga dapat mendaftarkan nomor anda di website kami</p>
+                            <p>Nomor yang kami daftarkan merupakan nomor yang telah terverifikasi oleh team Halo! dan Anda
+                                juga dapat mendaftarkan nomor anda di website kami</p>
                         </div>
                     </div>
 
@@ -79,7 +81,8 @@
 
                                 Jadi tunggu apalagi? Ayo daftar sekarang!
                             </p>
-                            <button class="btn btn-success">Daftar</button>
+                            <button class="btn btn-success"
+                                onclick="location.href='{{ route('register') }}'">Daftar</button>
                         </div>
                     </div>
 
@@ -217,8 +220,8 @@
                             <form action="" method="post" role="form" id="cs_form" class="php-email-form">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="text" name="nama_cs" class="form-control" id="name_cs"
-                                        placeholder="Nama" required>
+                                    <input type="text" name="nama_cs" class="form-control" id="name_cs" placeholder="Nama"
+                                        required>
                                     <span class="text-danger error-text name_cs_error"></span>
                                 </div>
                                 <div class="form-group mt-3">
