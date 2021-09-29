@@ -49,8 +49,7 @@
 
                             <img src="{{ asset('guest') }}/img/svg/asteroid.svg" alt="img">
                             <h4>Aman dan Nyaman</h4>
-                            <p>Nomor yang kami daftarkan merupakan nomor yang telah terverifikasi oleh team Halo! dan Anda
-                                juga dapat mendaftarkan nomor anda di website kami</p>
+                            <p>Nomor yang kami sediakan terjamin dan aman digunakan</p>
                         </div>
                     </div>
 
