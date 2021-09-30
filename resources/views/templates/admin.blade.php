@@ -54,25 +54,11 @@
                 <li class="active"><a href="dashboard"><i class="ft-home"></i><span
                             class="menu-title" data-i18n="">Beranda</span></a>
                 </li>
-                <li class=" nav-item"><a href="charts.html"><i class="ft-pie-chart"></i><span
-                            class="menu-title" data-i18n="">Charts</span></a>
-                </li>
-                <li class=" nav-item"><a href="cards.html"><i class="ft-layers"></i><span
-                            class="menu-title" data-i18n="">Cards</span></a>
-                </li>
-                <li class=" nav-item"><a href="typography.html"><i class="ft-bold"></i><span
-                            class="menu-title" data-i18n="">Typography</span></a>
-                </li>
                 <li class=" nav-item"><a href="contactdata"><i class="ft-credit-card"></i><span
                             class="menu-title" data-i18n="">Data Kontak</span></a>
                 </li>
-                <li class=" nav-item"><a href="form-elements.html"><i class="ft-layout"></i><span
-                            class="menu-title" data-i18n="">Form Elements</span></a>
-                </li>
-                <li class=" nav-item"><a
-                        href="https://themeselection.com/demo/chameleon-admin-template/documentation"><i
-                            class="ft-book"></i><span class="menu-title"
-                            data-i18n="">Documentation</span></a>
+                <li class=" nav-item"><a href="contactdata"><i class="ft-credit-card"></i><span
+                            class="menu-title" data-i18n="">Data Pengguna</span></a>
                 </li>
             </ul>
         </div>
