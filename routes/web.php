@@ -25,6 +25,8 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::view('/admin/dashboard', 'dashboard')->name('adm_dashboard');
         Route::get('/admin/contactdata', [ContactController::class, 'panel'])->name('tablecontact');
+        Route::view('/admin/contactdata/inputcontact', 'inputcontact')->name('inputcontact');
+        Route::get('/admin/contactdata/{contact:slug}', [ContactController::class, 'detailcontact'])->name('detailcontact');
     });
     Route::group(['middleware' => ['rolesys:user']], function () {
 

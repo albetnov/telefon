@@ -31,7 +31,8 @@
                     <div class="card">
                         <div class="card-content collapse show">
                             <div class="card-body">
-                                <a href="#" class="btn btn-success float-right">+</a>
+                                <a href="/admin/contactdata/inputcontact"
+                                    class="la la-plus btn btn-success float-right"></a>
                                 <div class="table-responsive">
                                     <table class="table mt-1">
                                         <thead>
@@ -52,9 +53,10 @@
                                                     <td>{{ $ct->nama_nomor }}</td>
                                                     <td>{{ $ct->alamat }}</td>
                                                     <td>{{ $ct->user_by->nama }}</td>
-                                                    <td><a href="#" class="la-eye btn btn-primary"></a>
-                                                    <td><a href="#" class="la-edit btn btn-success"></a>
-                                                    <td><a href="#" class="la-trash btn btn-danger"></a>
+                                                    <td><a href="#" class="la la-eye btn btn-primary"></a>
+                                                    <td><a href="/admin/contactdata/{{ $ct->slug }}"
+                                                            class="la la-edit btn btn-success"></a>
+                                                    <td><a href="#" class="la la-trash btn btn-danger"></a>
                                                     </td>
                                                 </tr>
                                             </tbody>
