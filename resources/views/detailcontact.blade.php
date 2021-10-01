@@ -50,7 +50,8 @@
 
 
 
-                            <a href="/admin/contactdata" class="btn btn-primary m-3">Kembali</a>
+                            <a href="/admin/contactdata" class="btn btn-primary ml-3 mb-3 mt-3">Kembali</a>
+                            <a href="/admin/contactdata/contactedit" class="la la-pencil btn btn-success"></a>
                         </div>
                     </div>
                 </div>

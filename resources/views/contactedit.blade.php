@@ -1,5 +1,5 @@
 @extends('templates.admin')
-@section('title', 'Dasbor | Input data kontak')
+@section('title', 'Dasbor | Edit data kontak')
 @section('content')
 
 
@@ -8,7 +8,7 @@
             <div class="content-wrapper-before"></div>
             <div class="content-header row">
                 <div class="content-header-left col-md-4 col-12 mb-2">
-                    <h3 class="content-header-title">Form tambah kontak</h3>
+                    <h3 class="content-header-title">Form Edit Kontak</h3>
                 </div>
                 <div class="content-header-right col-md-8 col-12">
                     <div class="breadcrumbs-top float-md-right">
@@ -18,7 +18,7 @@
                                 </li>
                                 <li class="breadcrumb-item active"><a href="/admin/contactdata">Data Kontak</a>
                                 </li>
-                                <li class="breadcrumb-item active">Tambah Kontak
+                                <li class="breadcrumb-item active">Edit Kontak
                                 </li>
                             </ol>
                         </div>
