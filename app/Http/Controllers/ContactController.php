@@ -14,21 +14,6 @@ class ContactController extends Controller
         return view('contact', ['contact' => Contact::with('con_code', 'user_by')->lazy()]);
     }
 
-    public function panel()
-    {
-        return view('tablecontact', ['tablecontact' => Contact::with('con_code', 'user_by')->lazy()]);
-    }
-
-    public function detailcontact(Contact $contact)
-    {
-        return view('detailcontact', ['c_info' => $contact]);
-    }
-
-    public function contact_detail(Contact $contact)
-    {
-        return view('contactdetail', ['c_info' => $contact]);
-    }
-
     public function send_contact(Request $req)
     {
         $verify = Validator::make($req->all(), [
