@@ -22,11 +22,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/contact/detail/{contact:slug}', [ContactController::class, 'contact_detail'])->name('gdetail');
     Route::get('/search', [ContactController::class, 'search_contact'])->name('search');
     Route::group(['middleware' => ['rolesys:admin']], function () {
-
+        //Dashboard
         Route::view('/admin/dashboard', 'admin/dashboard')->name('adm_dashboard');
+        //Manage Users
         Route::get('/admin/userdata', [AdminController::class, 'userdata'])->name('tableuser');
-        Route::view('/admin/userdata/useredit', 'admin/useredit')->name('useredit');
-        Route::get('/admin/userdata/{contact:slug}', [AdminController::class, 'userdetail'])->name('userdetail');
+        Route::get('/admin/userdata/{user}', [AdminController::class, 'userdetail'])->name('userdetail');
+        Route::get('/admin/userdata/useredit/{user}', [AdminController::class, 'edituser'])->name('useredit');
+        Route::post('/admin/userdata/actionedit/{user}', [AdminController::class, 'actedit'])->name('actedit');
+        Route::post('/admin/userdata/actionpass/{user}', [AdminController::class, 'actpassmod'])->name('actpass');
+        //Contact Data
         Route::get('/admin/contactdata', [AdminController::class, 'panel'])->name('tablecontact');
         Route::view('/admin/contactdata/inputcontact', 'admin/inputcontact')->name('inputcontact');
         Route::view('/admin/contactdata/contactedit', 'admin/contactedit')->name('contactedit');

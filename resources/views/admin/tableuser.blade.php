@@ -36,26 +36,27 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nomor</th>
-                                                <th>Nama Nomor</th>
-                                                <th>Alamat</th>
-                                                <th>Dibuat oleh</th>
-                                                <th>Aksi</th>
+                                                <th>Nama</th>
+                                                <th>Username</th>
+                                                <th>Dibuat</th>
+                                                <th>Diubah</th>
+                                                <th colspan="3" class="text-center">Aksi</th>
                                             </tr>
                                         </thead>
-                                        @foreach ($tableuser as $ct)
+                                        @foreach ($tableuser as $tu)
                                             <tbody>
                                                 <tr>
-                                                    <th scope="row">{{ $ct->id }}</th>
-                                                    <td>({{ $ct->con_code->code }}){{ $ct->nomor }}</td>
-                                                    <td>{{ $ct->nama_nomor }}</td>
-                                                    <td>{{ $ct->alamat }}</td>
-                                                    <td>{{ $ct->user_by->nama }}</td>
-                                                    <td><a href="{{ route('tableuser') }}/{{ $ct->slug }}"
-                                                            class="la-eye btn btn-primary"></a>
-                                                    <td><a href="{{ route('useredit') }}"
-                                                            class="la-edit btn btn-success"></a>
-                                                    <td><a href="#" class="la-trash btn btn-danger"></a>
+                                                    <th scope="row">{{ !empty($i) ? ++$i : ($i = 1) }}</th>
+                                                    <td>{{ $tu->nama }}</td>
+                                                    <td>{{ $tu->username }}</td>
+                                                    <td>{{ $tu->created_at }}</td>
+                                                    <td>{{ $tu->updated_at }}</td>
+                                                    <td><a href="{{ route('userdetail', $tu->id) }}"
+                                                            class="la la-eye btn btn-primary"></a></td>
+                                                    <td><a href="{{ route('useredit', $tu->id) }}"
+                                                            class="la la-edit btn btn-success"></a>
+                                                    </td>
+                                                    <td><a href="#" class="la la-trash btn btn-danger"></a>
                                                     </td>
                                                 </tr>
                                             </tbody>

@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/core/colors/palette-gradient.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/pages/dashboard-ecommerce.css">
+    <link rel="stylesheet" href="{{ asset('guest/vendor/toastr/toastr.min.css') }}">
     @stack('styles')
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
@@ -54,14 +55,17 @@
         </div>
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class="active"><a href="{{ route('adm_dashboard') }}"><i class="ft-home"></i><span
+                <li class="{{ strpos(Route::currentRouteName(), 'adm_dashboard') === 0 ? 'active' : '' }}"><a
+                        href="{{ route('adm_dashboard') }}"><i class="ft-home"></i><span
                             class="menu-title" data-i18n="">Beranda</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('tablecontact') }}"><i class="ft-credit-card"></i><span
-                            class="menu-title" data-i18n="">Data Kontak</span></a>
+                <li class="{{ strpos(Route::currentRouteName(), 'tablecontact') === 0 ? 'active' : '' }} nav-item"><a
+                        href="{{ route('tablecontact') }}"><i class="ft-credit-card"></i><span class="menu-title"
+                            data-i18n="">Data Kontak</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('tableuser') }}"><i class="ft-credit-card"></i><span
-                            class="menu-title" data-i18n="">Data Pengguna</span></a>
+                <li class="{{ strpos(Route::currentRouteName(), 'tableuser') === 0 ? 'active' : '' }} nav-item"><a
+                        href="{{ route('tableuser') }}"><i class="ft-credit-card"></i><span class="menu-title"
+                            data-i18n="">Data Pengguna</span></a>
                 </li>
                 <li class=" nav-item"><a href="{{ route('tablecontact') }}"><i class="ft-credit-card"></i><span
                             class="menu-title" data-i18n="">Data Country Code</span></a>
@@ -151,6 +155,12 @@
     <!-- BEGIN PAGE LEVEL JS-->
     <script src="{{ asset('admin') }}/js/scripts/pages/dashboard-lite.js" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
+    <script src="{{ asset('guest/vendor/toastr/toastr.min.js') }}"></script>
+    @if (session()->has('pesan'))
+        <script>
+            toastr['{{ session('tipe') }}']('{{ session('pesan') }}')
+        </script>
+    @endif
     @stack('scripts')
 </body>
 

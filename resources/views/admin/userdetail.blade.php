@@ -33,16 +33,12 @@
                     <div class="card">
                         <div class="card-content collapse show">
                             <div class="card-body m-2">
-                                <img src="{{ asset('guest') }}/img/team/1.jpg" width="200px" alt="image"
-                                    class="mb-3 mr-1 float-left">
                                 <div class="mt-1">
-                                    <p>Nomor : 6281424114</p>
-                                    <p>Alamat : Kepulauan Riau, Batam</p>
-                                    <p>Deskripsi : Lorem, ipsum dolor sit amet consectetur
-                                        adipisicing elit. Ullam,
-                                        rerum. Facere, ut, asperiores quibusdam iusto explicabo in nisi dolore incidunt
-                                        quam velit nulla, modi eius officiis iure iste non dolores.</p>
-                                    <p class="ml-1">Ditambah oleh : Albet Novendo</p>
+                                    <p>Nama: {{ $user->nama }}</p>
+                                    <p>Username : {{ $user->username }}</p>
+                                    <p>Level : {{ $user->level }}</p>
+                                    <p>Tanggal Pembuatan : {{ $user->created_at }}</p>
+                                    <p>Terakhir kali diperbarui : {{ $user->updated_at }}</p>
                                 </div>
                                 <br>
                                 <br>
@@ -51,7 +47,7 @@
 
 
                             <a href="{{ route('tableuser') }}" class="btn btn-primary ml-3 mb-3 mt-3">Kembali</a>
-                            <a href="{{ route('useredit') }}" class="la la-pencil btn btn-success"></a>
+                            <a href="{{ route('useredit', $user->id) }}" class="la la-pencil btn btn-success"></a>
                         </div>
                     </div>
                 </div>
