@@ -1,5 +1,5 @@
 @extends('templates.admin')
-@section('title', 'Dasbor | Data Kontak')
+@section('title', 'Dasbor | Data Pengguna')
 @section('content')
 
 
