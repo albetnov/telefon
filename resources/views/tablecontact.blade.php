@@ -42,7 +42,7 @@
                                                 <th>Nama Nomor</th>
                                                 <th>Alamat</th>
                                                 <th>Dibuat oleh</th>
-                                                <th>Aksi</th>
+                                                <th colspan="3" class="text-center">Aksi</th>
                                             </tr>
                                         </thead>
                                         @foreach ($tablecontact as $ct)
@@ -54,10 +54,10 @@
                                                     <td>{{ $ct->alamat }}</td>
                                                     <td>{{ $ct->user_by->nama }}</td>
                                                     <td><a href="/admin/contactdata/{{ $ct->slug }}"
-                                                            class="la la-eye btn btn-primary"></a>
+                                                            class="la la-eye btn btn-primary btn-sm"></a>
                                                     <td><a href="/admin/contactdata/contactedit"
-                                                            class="la la-edit btn btn-success"></a>
-                                                    <td><a href="#" class="la la-trash btn btn-danger"></a>
+                                                            class="la la-edit btn btn-success btn-sm"></a>
+                                                    <td><a href="#" class="la la-trash btn btn-danger btn-sm"></a>
                                                     </td>
                                                 </tr>
                                             </tbody>

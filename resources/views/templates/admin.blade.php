@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/core/colors/palette-gradient.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/pages/dashboard-ecommerce.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('datatable') }}/style.css">
+    @stack('styles')
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
     <!-- END Custom CSS-->
@@ -145,11 +145,7 @@
     <!-- BEGIN PAGE LEVEL JS-->
     <script src="{{ asset('admin') }}/js/scripts/pages/dashboard-lite.js" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"></script>
-
-    <script>
-        const table = new simpleDatatables.DataTable("table")
-    </script>
+    @stack('scripts')
 </body>
 
 </html>
