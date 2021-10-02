@@ -14,9 +14,9 @@
                     <div class="breadcrumbs-top float-md-right">
                         <div class="breadcrumb-wrapper mr-1">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="dashboard">Beranda</a>
+                                <li class="breadcrumb-item"><a href="{{ route('adm_dashboard') }}">Beranda</a>
                                 </li>
-                                <li class="breadcrumb-item active"><a href="/admin/contactdata">Data Kontak</a>
+                                <li class="breadcrumb-item active"><a href="{{ route('tablecontact') }}">Data Kontak</a>
                                 </li>
                                 <li class="breadcrumb-item active">Edit Kontak
                                 </li>
@@ -37,7 +37,8 @@
                                 <div class="ml-2 mt-2">
                                     <h6 class="ml-1">Pilih Country Code</h6>
                                     <fieldset class="form-group col-xl-2 col-lg-6 col-md-12">
-                                        <select class="form-control mb-2" id="basicSelect">
+                                        <select class="form-control mb-2" id="basicSelect"
+                                            value="{{ old('country_code') }}">
                                             <option>+62</option>
                                             <option>+65</option>
                                         </select>
@@ -51,8 +52,11 @@
 
                                                 <h6>Masukkan Nomor Kontak</h6>
                                                 <fieldset class="form-group">
-                                                    <input type="email" class="form-control" id="placeholderInput"
-                                                        placeholder="Nomor Kontak">
+                                                    <input type="text" name="nomor"
+                                                        class="form-control @error('nomor') is-invalid @enderror"
+                                                        id="placeholderInput" placeholder="Nomor Kontak"
+                                                        value="{{ old('nomor') }}">
+
                                                 </fieldset>
 
                                             </div>
@@ -65,8 +69,10 @@
 
                                                 <h6>Masukkan Nama Kontak</h6>
                                                 <fieldset class="form-group">
-                                                    <input type="email" class="form-control" id="placeholderInput"
-                                                        placeholder="Nama Kontak">
+                                                    <input type="text"
+                                                        class="form-control @error('nama') is-invalid @enderror"
+                                                        id="placeholderInput" placeholder="Nama Kontak"
+                                                        value="{{ old('nama') }}" name="nama">
                                                 </fieldset>
 
                                             </div>
@@ -77,10 +83,10 @@
                                         <div class="card">
                                             <div class="card-block">
 
-                                                <h6>Masukkan Nomor Kontak</h6>
-                                                <fieldset class="form-group">
-                                                    <input type="email" class="form-control" id="placeholderInput"
-                                                        placeholder="Enter Email Address">
+                                                <h6>Masukkan Alamat kontak</h6>
+                                                <fieldset class="form-group @error('alamat') is-invalid @enderror">
+                                                    <input type="text" class="form-control" id="placeholderInput"
+                                                        placeholder="Alamat" name="alamat">
                                                 </fieldset>
 
                                             </div>
@@ -91,10 +97,10 @@
                                         <div class="card">
                                             <div class="card-block">
 
-                                                <h6>Masukkan Alamat Kontak</h6>
-                                                <fieldset class="form-group">
-                                                    <input type="email" class="form-control" id="placeholderInput"
-                                                        placeholder="Alamat Kontak">
+                                                <h6>Masukkan Deskripsi</h6>
+                                                <fieldset class="form-group @error('deskripsi') is-invalid @enderror">
+                                                    <input type="text" class="form-control" id="placeholderInput"
+                                                        placeholder="Deskripsi" name="deskripsi">
                                                 </fieldset>
 
                                             </div>
@@ -109,7 +115,7 @@
                                         </div>
                                     </div>
 
-                                    <a href="/admin/contactdata" class="btn btn-primary ml-1 mb-1">Kembali</a>
+                                    <a href="{{ route('tablecontact') }}" class="btn btn-primary ml-1 mb-1">Kembali</a>
                                     <button class="btn btn-success ml-1 mb-1">Selesai</button>
                                 </div>
 

@@ -14,9 +14,9 @@
                     <div class="breadcrumbs-top float-md-right">
                         <div class="breadcrumb-wrapper mr-1">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/admin/dashboard">Beranda</a>
+                                <li class="breadcrumb-item"><a href="{{ route('adm_dashboard') }}">Beranda</a>
                                 </li>
-                                <li class="breadcrumb-item active"><a href="/admin/contactdata">Data Kontak</a>
+                                <li class="breadcrumb-item active"><a href="{{ route('tablecontact') }}">Data Kontak</a>
                                 </li>
                                 <li class="breadcrumb-item active">Detail Kontak
                                 </li>
@@ -50,8 +50,8 @@
 
 
 
-                            <a href="/admin/contactdata" class="btn btn-primary ml-3 mb-3 mt-3">Kembali</a>
-                            <a href="/admin/contactdata/contactedit" class="la la-pencil btn btn-success"></a>
+                            <a href="{{ route('tablecontact') }}" class="btn btn-primary ml-3 mb-3 mt-3">Kembali</a>
+                            <a href="{{ route('contactedit') }}" class="la la-pencil btn btn-success"></a>
                         </div>
                     </div>
                 </div>

@@ -12,7 +12,7 @@
     <meta name="author" content="ThemeSelect">
     <title>@yield('title')</title>
     <link rel="apple-touch-icon" href="{{ asset('admin') }}/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin') }}/images/ico/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('guest') }}/img/logoHalo!.png">
     <link
         href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700"
         rel="stylesheet">
@@ -54,14 +54,20 @@
         </div>
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class="active"><a href="/admin/dashboard"><i class="ft-home"></i><span
+                <li class="active"><a href="{{ route('adm_dashboard') }}"><i class="ft-home"></i><span
                             class="menu-title" data-i18n="">Beranda</span></a>
                 </li>
-                <li class=" nav-item"><a href="/admin/contactdata"><i class="ft-credit-card"></i><span
+                <li class=" nav-item"><a href="{{ route('tablecontact') }}"><i class="ft-credit-card"></i><span
                             class="menu-title" data-i18n="">Data Kontak</span></a>
                 </li>
-                <li class=" nav-item"><a href="/admin/contactdata"><i class="ft-credit-card"></i><span
+                <li class=" nav-item"><a href="{{ route('tableuser') }}"><i class="ft-credit-card"></i><span
                             class="menu-title" data-i18n="">Data Pengguna</span></a>
+                </li>
+                <li class=" nav-item"><a href="{{ route('tablecontact') }}"><i class="ft-credit-card"></i><span
+                            class="menu-title" data-i18n="">Data Country Code</span></a>
+                </li>
+                <li class=" nav-item"><a href="{{ route('tablecontact') }}"><i class="ft-credit-card"></i><span
+                            class="menu-title" data-i18n="">Pesan Pengguna</span></a>
                 </li>
             </ul>
         </div>
