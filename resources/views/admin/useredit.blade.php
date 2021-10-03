@@ -36,7 +36,8 @@
                                 @error('level')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <form id="editUser" method="POST" action="{{ route('actedit', $user->id) }}">
+                                <form id="editUser" method="POST" action="{{ route('actedit', $user->id) }}"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="ml-2 mt-2">
                                         <h6 class="ml-1">Level</h6>

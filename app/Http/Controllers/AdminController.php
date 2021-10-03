@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function pesandata()
+    {
+        return view('admin/tablepesan', ['tablepesan' => User::all()->lazy()]);
+    }
+
+    public function ccdata()
+    {
+        return view('admin/tablecc', ['tablecc' => User::all()->lazy()]);
+    }
+
+
     public function panel()
     {
         return view('admin/tablecontact', ['tablecontact' => Contact::with('con_code', 'user_by')->lazy()]);
@@ -83,6 +94,16 @@ class AdminController extends Controller
     public function detailcontact(Contact $contact)
     {
         return view('admin/detailcontact', ['c_info' => $contact]);
+    }
+
+    public function ccdetail(Contact $contact)
+    {
+        return view('admin/ccdetail', ['c_info' => $contact]);
+    }
+
+    public function pesandetail(Contact $contact)
+    {
+        return view('admin/pesandetail', ['c_info' => $contact]);
     }
 
     public function contact_detail(Contact $contact)

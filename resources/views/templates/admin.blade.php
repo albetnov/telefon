@@ -67,7 +67,7 @@
                         href="{{ route('tableuser') }}"><i class="ft-credit-card"></i><span class="menu-title"
                             data-i18n="">Data Pengguna</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('tablecontact') }}"><i class="ft-credit-card"></i><span
+                <li class=" nav-item"><a href="{{ route('tablecc') }}"><i class="ft-credit-card"></i><span
                             class="menu-title" data-i18n="">Data Country Code</span></a>
                 </li>
                 <li class=" nav-item"><a href="{{ route('tablecontact') }}"><i class="ft-credit-card"></i><span

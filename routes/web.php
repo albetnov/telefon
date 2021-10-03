@@ -25,6 +25,11 @@ Route::group(['middleware' => ['auth']], function () {
         //Dashboard
         Route::view('/admin/dashboard', 'admin/dashboard')->name('adm_dashboard');
         //Manage Users
+        Route::get('/admin/pesandata', [AdminController::class, 'pesandata'])->name('tablepesan');
+        Route::get('/admin/pesandata/{user}', [AdminController::class, 'pesandetail'])->name('pesandetail');
+        Route::get('/admin/ccdata', [AdminController::class, 'ccdata'])->name('tablecc');
+        Route::get('/admin/ccdata/{user}', [AdminController::class, 'ccdetail'])->name('ccdetail');
+        Route::view('/admin/ccedit', 'admin/ccedit')->name('ccedit');
         Route::get('/admin/userdata', [AdminController::class, 'userdata'])->name('tableuser');
         Route::get('/admin/userdata/{user}', [AdminController::class, 'userdetail'])->name('userdetail');
         Route::get('/admin/userdata/useredit/{user}', [AdminController::class, 'edituser'])->name('useredit');

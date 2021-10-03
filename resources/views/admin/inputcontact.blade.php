@@ -16,7 +16,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="dashboard">Beranda</a>
                                 </li>
-                                <li class="breadcrumb-item active"><a href="/admin/contactdata">Data Kontak</a>
+                                <li class="breadcrumb-item active"><a href="{{ route('tableuser') }}">Data Kontak</a>
                                 </li>
                                 <li class="breadcrumb-item active">Tambah Kontak
                                 </li>
@@ -33,86 +33,90 @@
                     <div class="card">
                         <div class="card-content collapse show">
                             <div class="card-body">
+                                @error('level')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <form id="#" method="POST" action="#" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="ml-2 mt-2">
+                                        <h6 class="ml-1">Pilih Country Code</h6>
+                                        <fieldset class="form-group col-xl-2 col-lg-6 col-md-12">
+                                            <select class="form-control mb-2" id="basicSelect">
+                                                <option>+62</option>
+                                                <option>+65</option>
+                                            </select>
+                                        </fieldset>
 
-                                <div class="ml-2 mt-2">
-                                    <h6 class="ml-1">Pilih Country Code</h6>
-                                    <fieldset class="form-group col-xl-2 col-lg-6 col-md-12">
-                                        <select class="form-control mb-2" id="basicSelect">
-                                            <option>+62</option>
-                                            <option>+65</option>
-                                        </select>
-                                    </fieldset>
 
 
+                                        <div class="col-xl-11 col-lg-6 col-md-12">
+                                            <div class="card">
+                                                <div class="card-block">
 
-                                    <div class="col-xl-11 col-lg-6 col-md-12">
-                                        <div class="card">
-                                            <div class="card-block">
+                                                    <h6>Masukkan Nomor Kontak</h6>
+                                                    <fieldset class="form-group">
+                                                        <input type="email" class="form-control" id="placeholderInput"
+                                                            placeholder="Nomor Kontak">
+                                                    </fieldset>
 
-                                                <h6>Masukkan Nomor Kontak</h6>
-                                                <fieldset class="form-group">
-                                                    <input type="email" class="form-control" id="placeholderInput"
-                                                        placeholder="Nomor Kontak">
-                                                </fieldset>
-
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-xl-11 col-lg-6 col-md-12">
-                                        <div class="card">
-                                            <div class="card-block">
+                                        <div class="col-xl-11 col-lg-6 col-md-12">
+                                            <div class="card">
+                                                <div class="card-block">
 
-                                                <h6>Masukkan Nama Kontak</h6>
-                                                <fieldset class="form-group">
-                                                    <input type="email" class="form-control" id="placeholderInput"
-                                                        placeholder="Nama Kontak">
-                                                </fieldset>
+                                                    <h6>Masukkan Nama Kontak</h6>
+                                                    <fieldset class="form-group">
+                                                        <input type="email" class="form-control" id="placeholderInput"
+                                                            placeholder="Nama Kontak">
+                                                    </fieldset>
 
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-xl-11 col-lg-6 col-md-12">
-                                        <div class="card">
-                                            <div class="card-block">
+                                        <div class="col-xl-11 col-lg-6 col-md-12">
+                                            <div class="card">
+                                                <div class="card-block">
 
-                                                <h6>Masukkan Nomor Kontak</h6>
-                                                <fieldset class="form-group">
-                                                    <input type="email" class="form-control" id="placeholderInput"
-                                                        placeholder="Enter Email Address">
-                                                </fieldset>
+                                                    <h6>Masukkan Nomor Kontak</h6>
+                                                    <fieldset class="form-group">
+                                                        <input type="email" class="form-control" id="placeholderInput"
+                                                            placeholder="Enter Email Address">
+                                                    </fieldset>
 
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-xl-11 col-lg-6 col-md-12">
-                                        <div class="card">
-                                            <div class="card-block">
+                                        <div class="col-xl-11 col-lg-6 col-md-12">
+                                            <div class="card">
+                                                <div class="card-block">
 
-                                                <h6>Masukkan Alamat Kontak</h6>
-                                                <fieldset class="form-group">
-                                                    <input type="email" class="form-control" id="placeholderInput"
-                                                        placeholder="Alamat Kontak">
-                                                </fieldset>
+                                                    <h6>Masukkan Alamat Kontak</h6>
+                                                    <fieldset class="form-group">
+                                                        <input type="email" class="form-control" id="placeholderInput"
+                                                            placeholder="Alamat Kontak">
+                                                    </fieldset>
 
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <h6 class="ml-1">Pilih gambar kontak</h6>
-                                    <div class="input-group mb-3 col-xl-4 col-lg-6 col-md-12">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="inputGroupFile03">
-                                            <label class="custom-file-label" for="inputGroupFile03">Pilih gambar</label>
+                                        <h6 class="ml-1">Pilih gambar kontak</h6>
+                                        <div class="input-group mb-3 col-xl-4 col-lg-6 col-md-12">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="inputGroupFile03">
+                                                <label class="custom-file-label" for="inputGroupFile03">Pilih gambar</label>
+                                            </div>
                                         </div>
+
+                                        <a href="/admin/contactdata" class="btn btn-primary ml-1 mb-1">Kembali</a>
+                                        <button class="btn btn-success ml-1 mb-1">Selesai</button>
                                     </div>
-
-                                    <a href="/admin/contactdata" class="btn btn-primary ml-1 mb-1">Kembali</a>
-                                    <button class="btn btn-success ml-1 mb-1">Selesai</button>
-                                </div>
-
+                                </form>
                             </div>
                         </div>
                     </div>

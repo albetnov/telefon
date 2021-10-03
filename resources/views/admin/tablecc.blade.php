@@ -48,17 +48,17 @@
                                                     <th colspan="3" class="text-center">Aksi</th>
                                                 </tr>
                                             </thead>
-                                            @foreach ($tableuser as $tu)
+                                            @foreach ($tablecc as $tc)
                                                 <tbody>
                                                     <tr>
                                                         <th scope="row">{{ !empty($i) ? ++$i : ($i = 1) }}</th>
-                                                        <td>{{ $tu->nama }}</td>
-                                                        <td>{{ $tu->username }}</td>
-                                                        <td>{{ $tu->created_at }}</td>
-                                                        <td>{{ $tu->updated_at }}</td>
-                                                        <td><a href="{{ route('userdetail', $tu->id) }}"
+                                                        <td>{{ $tc->nama }}</td>
+                                                        <td>{{ $tc->username }}</td>
+                                                        <td>{{ $tc->created_at }}</td>
+                                                        <td>{{ $tc->updated_at }}</td>
+                                                        <td><a href="{{ route('ccdetail', $tc->id) }}"
                                                                 class="la la-eye btn btn-primary"></a></td>
-                                                        <td><a href="{{ route('useredit', $tu->id) }}"
+                                                        <td><a href="{{ route('ccedit', $tc->id) }}"
                                                                 class="la la-edit btn btn-success"></a>
                                                         </td>
                                                         <td><a href="#" class="la la-trash btn btn-danger"></a>
