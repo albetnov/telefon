@@ -33,21 +33,22 @@
                     <div class="card">
                         <div class="card-content collapse show">
                             <div class="card-body">
-                                @error('level')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                                <form id="#" method="POST" action="#" enctype="multipart/form-data">
+                                <form method="POST" action="{{ route('actccedit', $dcc->id) }}">
                                     @csrf
                                     <div class="col-xl-11 col-lg-6 col-md-12">
                                         <div class="card">
                                             <div class="card-block">
-
                                                 <h6>Code</h6>
                                                 <fieldset class="form-group">
                                                     <input type="text"
                                                         class="form-control @error('code') is-invalid @enderror"
-                                                        id="placeholderInput" placeholder="Code" value="{{ old('code') }}"
+                                                        placeholder="Code" value="{{ old('code', $dcc->code) }}"
                                                         name="code">
+                                                    @error('code')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </fieldset>
 
                                             </div>
@@ -60,16 +61,21 @@
 
                                                 <h6>Country</h6>
                                                 <fieldset class="form-group @error('country') is-invalid @enderror">
-                                                    <input type="text" class="form-control" id="placeholderInput"
-                                                        placeholder="Country" name="Country" value="{{ old('country') }}">
+                                                    <input type="text" class="form-control" placeholder="Country"
+                                                        name="country" value="{{ old('country', $dcc->country) }}">
+                                                    @error('country')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </fieldset>
 
                                             </div>
                                         </div>
                                     </div>
 
-                                    <a href="{{ route('tablecc') }}" class="btn btn-primary ml-1 mb-1">Kembali</a>
-                                    <button class="btn btn-success ml-1 mb-1">Selesai</button>
+                                    <a href="{{ route('tablecontact') }}" class="btn btn-primary ml-1 mb-1">Kembali</a>
+                                    <button type="submit" class="btn btn-success ml-1 mb-1">Selesai</button>
                             </div>
                             </form>
                         </div>

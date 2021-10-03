@@ -1,5 +1,5 @@
 @extends('templates.admin')
-@section('title', 'Dasbor | Data Pengguna')
+@section('title', 'Dasbor | Data Country Code')
 @section('content')
 
 
@@ -16,7 +16,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="dashboard">Beranda</a>
                                 </li>
-                                <li class="breadcrumb-item active">Data Pengguna
+                                <li class="breadcrumb-item active">Data Country Code
                                 </li>
                             </ol>
                         </div>
@@ -31,44 +31,66 @@
                     <div class="card">
                         <div class="card-content collapse show">
                             <div class="card-body">
-                                @error('level')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                                <form id="#" method="POST" action="#">
-                                    @csrf
-                                    <div class="table-responsive">
-                                        <table class="table mt-1">
-                                            <thead>
+                                <a href="{{ route('addcc') }}"
+                                    class="la la-plus btn btn-success float-right mr-1"></a>
+                                <div class="table-responsive">
+                                    <table class="table mt-1">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama Negara</th>
+                                                <th>Kode Negara</th>
+                                                <th colspan="2" class="text-center">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        @foreach ($tablecc as $tcc)
+                                            <tbody>
                                                 <tr>
-                                                    <th>No</th>
-                                                    <th>Nama</th>
-                                                    <th>Username</th>
-                                                    <th>Dibuat</th>
-                                                    <th>Diubah</th>
-                                                    <th colspan="3" class="text-center">Aksi</th>
+                                                    <th scope="row">{{ !empty($i) ? ++$i : ($i = 1) }}</th>
+                                                    <td>{{ $tcc->country }}</td>
+                                                    <td>{{ $tcc->code }}</td>
+                                                    <td><a href="{{ route('ccedit', $tcc->id) }}"
+                                                            class="la la-edit btn btn-success"></a>
+                                                    </td>
+                                                    <td><button data-toggle="modal"
+                                                            data-target="#hapusData{{ $tcc->id }}"
+                                                            class="la la-trash btn btn-danger btn-sm"></button>
+                                                        <div class="modal fade" id="hapusData{{ $tcc->id }}"
+                                                            data-backdrop="static" data-keyboard="false" tabindex="-1"
+                                                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="staticBackdropLabel">
+                                                                            Hapus Data?</h5>
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Yakin hapus data, {{ $tcc->country }}?
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">Tidak.</button>
+                                                                        <form style="display:inline" method="post"
+                                                                            action="{{ route('actdelcc', $tcc->id) }}">
+                                                                            @csrf
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Ya,
+                                                                                Hapus.</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
                                                 </tr>
-                                            </thead>
-                                            @foreach ($tablecc as $tc)
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">{{ !empty($i) ? ++$i : ($i = 1) }}</th>
-                                                        <td>{{ $tc->nama }}</td>
-                                                        <td>{{ $tc->username }}</td>
-                                                        <td>{{ $tc->created_at }}</td>
-                                                        <td>{{ $tc->updated_at }}</td>
-                                                        <td><a href="{{ route('ccdetail', $tc->id) }}"
-                                                                class="la la-eye btn btn-primary"></a></td>
-                                                        <td><a href="{{ route('ccedit', $tc->id) }}"
-                                                                class="la la-edit btn btn-success"></a>
-                                                        </td>
-                                                        <td><a href="#" class="la la-trash btn btn-danger"></a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            @endforeach
-                                        </table>
-                                    </div>
-                                </form>
+                                            </tbody>
+                                        @endforeach
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

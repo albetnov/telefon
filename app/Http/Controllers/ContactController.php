@@ -36,6 +36,11 @@ class ContactController extends Controller
         }
     }
 
+    public function contact_detail(Contact $contact)
+    {
+        return view('contactdetail', ['c_info' => $contact]);
+    }
+
     public function search_contact(Request $req)
     {
         $query = $req->input('query');

@@ -9,5 +9,6 @@ class CSContact extends Model
 {
     use HasFactory;
     protected $table = 'cs_contact';
+    const UPDATED_AT = null;
     protected $fillable = ['nama_cs', 'email_cs', 'subject_cs', 'message_cs'];
 }

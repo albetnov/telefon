@@ -48,16 +48,47 @@
                                         @foreach ($tablecontact as $ct)
                                             <tbody>
                                                 <tr>
-                                                    <th scope="row">{{ $ct->id }}</th>
+                                                    <th scope="row">{{ !empty($i) ? ++$i : ($i = 1) }}</th>
                                                     <td>({{ $ct->con_code->code }}){{ $ct->nomor }}</td>
                                                     <td>{{ $ct->nama_nomor }}</td>
                                                     <td>{{ $ct->alamat }}</td>
                                                     <td>{{ $ct->user_by->nama }}</td>
-                                                    <td><a href="{{ route('tablecontact') }}/{{ $ct->slug }}"
+                                                    <td><a href="{{ route('detailcontact', $ct->slug) }}"
                                                             class="la la-eye btn btn-primary btn-sm"></a>
-                                                    <td><a href="{{ route('contactedit') }}"
+                                                    <td><a href="{{ route('contactedit', $ct->slug) }}"
                                                             class="la la-edit btn btn-success btn-sm"></a>
-                                                    <td><a href="#" class="la la-trash btn btn-danger btn-sm"></a>
+                                                    <td><button data-toggle="modal"
+                                                            data-target="#hapusData{{ $ct->id }}"
+                                                            class="la la-trash btn btn-danger btn-sm"></button>
+                                                        <div class="modal fade" id="hapusData{{ $ct->id }}"
+                                                            data-backdrop="static" data-keyboard="false" tabindex="-1"
+                                                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="staticBackdropLabel">
+                                                                            Hapus Data?</h5>
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Yakin hapus data, {{ $ct->nama_nomor }}?
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">Tidak.</button>
+                                                                        <form style="display:inline" method="post"
+                                                                            action="{{ route('delc', $ct->slug) }}">
+                                                                            @csrf
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Ya, Hapus.</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             </tbody>

@@ -24,22 +24,32 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['rolesys:admin']], function () {
         //Dashboard
         Route::view('/admin/dashboard', 'admin/dashboard')->name('adm_dashboard');
+        //Manage Pesan
+        Route::get('/admin/pesan', [AdminController::class, 'pesandata'])->name('tablepesan');
+        Route::get('/admin/pesan/detail/{cscontact}', [AdminController::class, 'pesandetail'])->name('pesandetail');
+        Route::post('/admin/pesan/actiondel/{cscontact}', [AdminController::class, 'delpesan'])->name('delpesan');
+        //Manage Country Code
+        Route::view('/admin/country_code/add', 'admin.addcc')->name('addcc');
+        Route::post('/admin/country_code/actionadd', [AdminController::class, 'actadd_cc'])->name('actaddcc');
+        Route::get('/admin/country_code', [AdminController::class, 'ccdata'])->name('tablecc');
+        Route::get('/admin/country_code/edit/{cc}', [AdminController::class, 'ccedit'])->name('ccedit');
+        Route::post('/admin/country_code/actionedit/{cc}', [AdminController::class, 'actedit_cc'])->name('actccedit');
+        Route::post('/admin/country_code/actiondel/{cc}', [AdminController::class, 'actdel_cc'])->name('actdelcc');
         //Manage Users
-        Route::get('/admin/pesandata', [AdminController::class, 'pesandata'])->name('tablepesan');
-        Route::get('/admin/pesandata/{user}', [AdminController::class, 'pesandetail'])->name('pesandetail');
-        Route::get('/admin/ccdata', [AdminController::class, 'ccdata'])->name('tablecc');
-        Route::get('/admin/ccdata/{user}', [AdminController::class, 'ccdetail'])->name('ccdetail');
-        Route::view('/admin/ccedit', 'admin/ccedit')->name('ccedit');
-        Route::get('/admin/userdata', [AdminController::class, 'userdata'])->name('tableuser');
-        Route::get('/admin/userdata/{user}', [AdminController::class, 'userdetail'])->name('userdetail');
-        Route::get('/admin/userdata/useredit/{user}', [AdminController::class, 'edituser'])->name('useredit');
-        Route::post('/admin/userdata/actionedit/{user}', [AdminController::class, 'actedit'])->name('actedit');
-        Route::post('/admin/userdata/actionpass/{user}', [AdminController::class, 'actpassmod'])->name('actpass');
+        Route::get('/admin/user', [AdminController::class, 'userdata'])->name('tableuser');
+        Route::get('/admin/user/detail/{user}', [AdminController::class, 'userdetail'])->name('userdetail');
+        Route::get('/admin/user/useredit/{user}', [AdminController::class, 'edituser'])->name('useredit');
+        Route::post('/admin/user/actionedit/{user}', [AdminController::class, 'actedit'])->name('actedit');
+        Route::post('/admin/user/actionpass/{user}', [AdminController::class, 'actpassmod'])->name('actpass');
+        Route::post('/admin/user/actiondel/{user}', [AdminController::class, 'deluser'])->name('deluser');
         //Contact Data
-        Route::get('/admin/contactdata', [AdminController::class, 'panel'])->name('tablecontact');
-        Route::view('/admin/contactdata/inputcontact', 'admin/inputcontact')->name('inputcontact');
-        Route::view('/admin/contactdata/contactedit', 'admin/contactedit')->name('contactedit');
-        Route::get('/admin/contactdata/{contact:slug}', [AdminController::class, 'detailcontact'])->name('detailcontact');
+        Route::get('/admin/contact', [AdminController::class, 'panel'])->name('tablecontact');
+        Route::get('/admin/contact/create', [AdminController::class, 'create_contact'])->name('inputcontact');
+        Route::post('/admin/contact/actioncreate', [AdminController::class, 'save_contact'])->name('actct');
+        Route::get('/admin/contact/edit/{contact:slug}', [AdminController::class, 'edit_view'])->name('contactedit');
+        Route::post('/admin/contact/actionedit/{contact:slug}', [AdminController::class, 'edit_contact'])->name('edc');
+        Route::get('/admin/contact/detail/{contact:slug}', [AdminController::class, 'detailcontact'])->name('detailcontact');
+        Route::post('/admin/contact/actiondelete/{contact:slug}', [AdminController::class, 'del_contact'])->name('delc');
     });
     Route::group(['middleware' => ['rolesys:user']], function () {
 

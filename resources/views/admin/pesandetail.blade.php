@@ -33,16 +33,12 @@
                     <div class="card">
                         <div class="card-content collapse show">
                             <div class="card-body m-2">
-                                <img src="{{ asset('guest') }}/img/team/1.jpg" width="200px" alt="image"
-                                    class="mb-3 mr-1 float-left">
                                 <div class="mt-1">
-                                    <p>Nama cs : assadsada</p>
-                                    <p>Email cs : Kepulauan Riau, Batam</p>
-                                    <p>Subjek cs : asdsadsad</p>
-                                    <p>Pesan : Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti praesentium
-                                        ab quas repellat. Recusandae, sint! Ex repudiandae, magni optio, illo qui sequi rem
-                                        obcaecati, inventore quisquam veniam dolores commodi repellendus.</p>
-                                    <p class="ml-1">Ditambah oleh : Albet Novendo</p>
+                                    <p>Nama Customer : {{ $cs->nama_cs }}</p>
+                                    <p>Email Customer : {{ $cs->email_cs }}</p>
+                                    <p>Subjek Customer : {{ $cs->subject_cs }}</p>
+                                    <p>Pesan : {{ $cs->message_cs }}</p>
+                                    <p>Dibuat: {{ $cs->created_at }}</p>
                                 </div>
                                 <br>
                                 <br>

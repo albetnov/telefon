@@ -67,11 +67,13 @@
                         href="{{ route('tableuser') }}"><i class="ft-credit-card"></i><span class="menu-title"
                             data-i18n="">Data Pengguna</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('tablecc') }}"><i class="ft-credit-card"></i><span
-                            class="menu-title" data-i18n="">Data Country Code</span></a>
+                <li class="{{ strpos(Route::currentRouteName(), 'tablecc') === 0 ? 'active' : '' }} nav-item"><a
+                        href="{{ route('tablecc') }}"><i class="ft-credit-card"></i><span class="menu-title"
+                            data-i18n="">Data Country Code</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('tablecontact') }}"><i class="ft-credit-card"></i><span
-                            class="menu-title" data-i18n="">Pesan Pengguna</span></a>
+                <li class="{{ strpos(Route::currentRouteName(), 'tablepesan') === 0 ? 'active' : '' }} nav-item"><a
+                        href="{{ route('tablepesan') }}"><i class="ft-credit-card"></i><span class="menu-title"
+                            data-i18n="">Pesan Pengguna</span></a>
                 </li>
             </ul>
         </div>

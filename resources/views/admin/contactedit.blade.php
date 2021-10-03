@@ -33,20 +33,21 @@
                     <div class="card">
                         <div class="card-content collapse show">
                             <div class="card-body">
-
-
-                                @error('level')
+                                @error('con_code')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <form id="#" method="POST" action="#" enctype="multipart/form-data">
+                                <form id="#" method="POST" action="{{ route('edc', $c_info->slug) }}"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="ml-2 mt-2">
                                         <h6 class="ml-1">Pilih Country Code</h6>
                                         <fieldset class="form-group col-xl-2 col-lg-6 col-md-12">
-                                            <select class="form-control mb-2" id="basicSelect"
-                                                value="{{ old('country_code') }}">
-                                                <option>+62</option>
-                                                <option>+65</option>
+                                            <select class="form-control mb-2" name="country_code">
+                                                @foreach ($con_code as $cc)
+                                                    <option value="{{ $cc->id }}"
+                                                        {{ $c_info->con_code->code === $cc->code ? 'selected' : '' }}>
+                                                        {{ $cc->code }}</option>
+                                                @endforeach
                                             </select>
                                         </fieldset>
 
@@ -58,11 +59,13 @@
 
                                                     <h6>Masukkan Nomor Kontak</h6>
                                                     <fieldset class="form-group">
-                                                        <input type="text" name="nomor"
+                                                        <input type="number"
                                                             class="form-control @error('nomor') is-invalid @enderror"
-                                                            id="placeholderInput" placeholder="Nomor Kontak"
-                                                            value="{{ old('nomor') }}">
-
+                                                            name="nomor" placeholder="Nomor Kontak"
+                                                            value="{{ old('nomor', $c_info->nomor) }}">
+                                                        @error('nomor')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
                                                     </fieldset>
 
                                                 </div>
@@ -77,8 +80,29 @@
                                                     <fieldset class="form-group">
                                                         <input type="text"
                                                             class="form-control @error('nama_nomor') is-invalid @enderror"
-                                                            id="placeholderInput" placeholder="Nama Kontak"
-                                                            value="{{ old('nama_nomor') }}" name="nama_nomor">
+                                                            name="nama_nomor" placeholder="Nama Kontak"
+                                                            value="{{ old('nama_nomor', $c_info->nama_nomor) }}">
+                                                        @error('nama_nomor')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-11 col-lg-6 col-md-12">
+                                            <div class="card">
+                                                <div class="card-block">
+
+                                                    <h6>Masukkan Deskripsi Kontak</h6>
+                                                    <fieldset class="form-group">
+                                                        <textarea
+                                                            class="form-control @error('deskripsi') is-invalid @enderror"
+                                                            name="deskripsi" cols="30"
+                                                            rows="10">{{ old('deskripsi', $c_info->deskripsi) }}</textarea>
+                                                        @error('deskripsi')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
                                                     </fieldset>
 
                                                 </div>
@@ -89,26 +113,15 @@
                                             <div class="card">
                                                 <div class="card-block">
 
-                                                    <h6>Masukkan Alamat kontak</h6>
-                                                    <fieldset class="form-group @error('alamat') is-invalid @enderror">
-                                                        <input type="text" class="form-control" id="placeholderInput"
-                                                            placeholder="Alamat" name="alamat"
-                                                            value="{{ old('alamat') }}">
-                                                    </fieldset>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xl-11 col-lg-6 col-md-12">
-                                            <div class="card">
-                                                <div class="card-block">
-
-                                                    <h6>Masukkan Deskripsi</h6>
-                                                    <fieldset class="form-group @error('deskripsi') is-invalid @enderror">
-                                                        <input type="text" class="form-control" id="placeholderInput"
-                                                            placeholder="Deskripsi" name="deskripsi"
-                                                            value="{{ old('deskripsi') }}">
+                                                    <h6>Masukkan Alamat Kontak</h6>
+                                                    <fieldset class="form-group">
+                                                        <input type="text"
+                                                            class="form-control @error('alamat') is-invalid @enderror"
+                                                            name="alamat" placeholder="Alamat Kontak"
+                                                            value="{{ old('alamat', $c_info->alamat) }}">
+                                                        @error('alamat')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
                                                     </fieldset>
 
                                                 </div>
@@ -116,13 +129,28 @@
                                         </div>
 
                                         <h6 class="ml-1">Pilih gambar kontak</h6>
-                                        <div class="input-group mb-3 col-xl-4 col-lg-6 col-md-12">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="inputGroupFile03"
-                                                    value="{{ old('photo') }}">
-                                                <label class="custom-file-label" for="inputGroupFile03">Pilih gambar</label>
-                                            </div>
+                                        {{-- <div class="input-group mb-3">
+                                         <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                                                aria-describedby="inputGroupFileAddon01">
+                                            <label class="custom-file-label" for="inputGroupFile01">Masukan File
+                                                Gambar</label>
+                                        </div> --}}
+                                        <div class="form-group">
+                                            @empty(!$c_info->photo)
+                                                <label>Current:</label><br>
+                                                <img src="{{ asset('storage/contact') }}/{{ $c_info->photo }}"
+                                                    width="200px" alt="image" class="mb-3 mr-1">
+                                            @else
+                                                <label>Current: No Photo</label>
+                                            @endempty
+                                            <input type="file" class="form-control @error('photo') is-invalid @enderror"
+                                                name="photo">
+                                            @error('photo')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
+                                        {{-- </div> --}}
 
                                         <a href="{{ route('tablecontact') }}"
                                             class="btn btn-primary ml-1 mb-1">Kembali</a>

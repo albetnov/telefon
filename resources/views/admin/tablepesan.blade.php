@@ -31,41 +31,67 @@
                     <div class="card">
                         <div class="card-content collapse show">
                             <div class="card-body">
-                                @error('level')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                                <form id="#" method="POST" action="#">
-                                    @csrf
-                                    <div class="table-responsive">
-                                        <table class="table mt-1">
-                                            <thead>
+                                <div class="table-responsive">
+                                    <table class="table mt-1">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama</th>
+                                                <th>Subjek</th>
+                                                <th>Dibuat</th>
+                                                <th>Diubah</th>
+                                                <th colspan="3" class="text-center">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        @foreach ($tablepesan as $tp)
+                                            <tbody>
                                                 <tr>
-                                                    <th>No</th>
-                                                    <th>Nama</th>
-                                                    <th>Username</th>
-                                                    <th>Dibuat</th>
-                                                    <th>Diubah</th>
-                                                    <th colspan="3" class="text-center">Aksi</th>
+                                                    <th scope="row">{{ !empty($i) ? ++$i : ($i = 1) }}</th>
+                                                    <td>{{ $tp->nama_cs }}</td>
+                                                    <td>{{ $tp->subject_cs }}</td>
+                                                    <td>{{ $tp->created_at }}</td>
+                                                    <td>{{ $tp->updated_at }}</td>
+                                                    <td><a href="{{ route('pesandetail', $tp->id) }}"
+                                                            class="la la-eye btn btn-primary"></a></td>
+                                                    <td><button data-toggle="modal"
+                                                            data-target="#hapusData{{ $tp->id }}"
+                                                            class="la la-trash btn btn-danger"></button>
+                                                        <div class="modal fade" id="hapusData{{ $tp->id }}"
+                                                            data-backdrop="static" data-keyboard="false" tabindex="-1"
+                                                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="staticBackdropLabel">
+                                                                            Hapus Data?</h5>
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Yakin hapus data, {{ $tp->nama_cs }}?
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">Tidak.</button>
+                                                                        <form style="display:inline" method="post"
+                                                                            action="{{ route('delpesan', $tp->id) }}">
+                                                                            @csrf
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Ya,
+                                                                                Hapus.</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
                                                 </tr>
-                                            </thead>
-                                            @foreach ($tablepesan as $tp)
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">{{ !empty($i) ? ++$i : ($i = 1) }}</th>
-                                                        <td>{{ $tp->nama }}</td>
-                                                        <td>{{ $tp->username }}</td>
-                                                        <td>{{ $tp->created_at }}</td>
-                                                        <td>{{ $tp->updated_at }}</td>
-                                                        <td><a href="{{ route('pesandetail', $tp->id) }}"
-                                                                class="la la-eye btn btn-primary"></a></td>
-                                                        <td><a href="#" class="la la-trash btn btn-danger"></a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            @endforeach
-                                        </table>
-                                    </div>
-                                </form>
+                                            </tbody>
+                                        @endforeach
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

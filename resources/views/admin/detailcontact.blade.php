@@ -33,25 +33,27 @@
                     <div class="card">
                         <div class="card-content collapse show">
                             <div class="card-body m-2">
-                                <img src="{{ asset('guest') }}/img/team/1.jpg" width="200px" alt="image"
-                                    class="mb-3 mr-1 float-left">
+                                @empty(!$c_info->photo)
+                                    <img src="{{ asset('storage/contact') }}/{{ $c_info->photo }}" width="200px" alt="image"
+                                        class="mb-3 mr-1 float-left">
+                                @else
+                                    <p>Photo : No Photo</p>
+                                @endempty
                                 <div class="mt-1">
-                                    <p>Nomor : 6281424114</p>
-                                    <p>Alamat : Kepulauan Riau, Batam</p>
-                                    <p>Deskripsi : Lorem, ipsum dolor sit amet consectetur
-                                        adipisicing elit. Ullam,
-                                        rerum. Facere, ut, asperiores quibusdam iusto explicabo in nisi dolore incidunt
-                                        quam velit nulla, modi eius officiis iure iste non dolores.</p>
-                                    <p class="ml-1">Ditambah oleh : Albet Novendo</p>
+                                    <p>Nama Kontak : {{ $c_info->nama_nomor }} </p>
+                                    <p>Nomor : ({{ $c_info->con_code->code }}) {{ $c_info->nomor }}</p>
+                                    <p>Alamat : {{ $c_info->alamat }}</p>
+                                    <p>Deskripsi: {{ $c_info->deskripsi }}</p>
+                                    <p>Dibuat: {{ $c_info->created_at }}</p>
+                                    <p>Terakhir kali diubah: {{ $c_info->updated_at }}</p>
+                                    <p class="ml-1">Ditambah oleh : {{ $c_info->user_by->nama }}</p>
                                 </div>
                                 <br>
                                 <br>
                             </div>
 
-
-
                             <a href="{{ route('tablecontact') }}" class="btn btn-primary ml-3 mb-3 mt-3">Kembali</a>
-                            <a href="{{ route('contactedit') }}" class="la la-pencil btn btn-success"></a>
+                            <a href="{{ route('contactedit', $c_info->slug) }}" class="la la-pencil btn btn-success"></a>
                         </div>
                     </div>
                 </div>
