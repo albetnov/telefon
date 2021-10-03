@@ -107,12 +107,8 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav float-right">
-                        <li class="dropdown dropdown-user nav-item"><a
-                                class="dropdown-toggle nav-link dropdown-user-link" href="#"
-                                data-toggle="dropdown"><span class="avatar"><img
-                                        src="{{ asset('admin') }}/images/portrait/small/avatar-s-19.png"
-                                        alt="avatar"><i></i></span></a>
-                            <div class="dropdown-menu dropdown-menu-right">
+                        <li class="dropdown dropdown-user nav-item">
+                            <div class="mt-2">
                                 <form method="POST" action="{{ route('logout') }} ">
                                     @csrf
 

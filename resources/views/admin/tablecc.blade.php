@@ -8,13 +8,13 @@
             <div class="content-wrapper-before"></div>
             <div class="content-header row">
                 <div class="content-header-left col-md-4 col-12 mb-2">
-                    <h3 class="content-header-title">Data Pengguna</h3>
+                    <h3 class="content-header-title">Data Country Code</h3>
                 </div>
                 <div class="content-header-right col-md-8 col-12">
                     <div class="breadcrumbs-top float-md-right">
                         <div class="breadcrumb-wrapper mr-1">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="dashboard">Beranda</a>
+                                <li class="breadcrumb-item"><a href="{{ route('adm_dashboard') }}">Beranda</a>
                                 </li>
                                 <li class="breadcrumb-item active">Data Country Code
                                 </li>
@@ -31,8 +31,7 @@
                     <div class="card">
                         <div class="card-content collapse show">
                             <div class="card-body">
-                                <a href="{{ route('addcc') }}"
-                                    class="la la-plus btn btn-success float-right mr-1"></a>
+                                <a href="{{ route('addcc') }}" class="la la-plus btn btn-success float-right mr-1"></a>
                                 <div class="table-responsive">
                                     <table class="table mt-1">
                                         <thead>
