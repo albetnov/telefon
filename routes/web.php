@@ -53,7 +53,10 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::group(['middleware' => ['rolesys:user']], function () {
 
-        Route::view('/user/dashboard', 'dashboard')->name('usr_dashboard');
+        Route::view('/user/dashboard', 'user.dashboard')->name('usr_dashboard');
+        Route::view('/user/contactdata', 'user.tablecontact')->name('tablecontact');
+        Route::view('/user/contactdata/{contact:slug}', 'user.detailcontact')->name('detailcontact');
+        // Route::view('/user/contactdata/inputcontact', 'user.inputcontact')->name('inputcontact');
     });
 });
 

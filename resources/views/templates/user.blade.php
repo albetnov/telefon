@@ -56,26 +56,13 @@
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                 <li class="{{ strpos(Route::currentRouteName(), 'adm_dashboard') === 0 ? 'active' : '' }}"><a
-                        href="{{ route('adm_dashboard') }}"><i class="ft-home"></i><span
+                        href="{{ route('usr_dashboard') }}"><i class="ft-home"></i><span
                             class="menu-title" data-i18n="">Beranda</span></a>
                 </li>
                 <li class="{{ strpos(Route::currentRouteName(), 'tablecontact') === 0 ? 'active' : '' }} nav-item"><a
                         href="{{ route('tablecontact') }}"><i class="ft-credit-card"></i><span class="menu-title"
                             data-i18n="">Data Kontak</span></a>
                 </li>
-                <li class="{{ strpos(Route::currentRouteName(), 'tableuser') === 0 ? 'active' : '' }} nav-item"><a
-                        href="{{ route('tableuser') }}"><i class="ft-credit-card"></i><span class="menu-title"
-                            data-i18n="">Data Pengguna</span></a>
-                </li>
-                <li class="{{ strpos(Route::currentRouteName(), 'tablecc') === 0 ? 'active' : '' }} nav-item"><a
-                        href="{{ route('tablecc') }}"><i class="ft-credit-card"></i><span class="menu-title"
-                            data-i18n="">Data Country Code</span></a>
-                </li>
-                <li class="{{ strpos(Route::currentRouteName(), 'tablepesan') === 0 ? 'active' : '' }} nav-item"><a
-                        href="{{ route('tablepesan') }}"><i class="ft-credit-card"></i><span class="menu-title"
-                            data-i18n="">Pesan Pengguna</span></a>
-                </li>
-
                 <li class="dropdown dropdown-user nav-item">
 
                     <form method="POST" action="{{ route('logout') }} ">
@@ -89,8 +76,6 @@
 
         </div>
         </li>
-
-        </ul>
     </div>
     <div class="navigation-background"></div>
     </div>
@@ -121,7 +106,9 @@
                             </ul>
                         </li>
                     </ul>
+                    <ul class="nav navbar-nav float-right">
 
+                    </ul>
                 </div>
             </div>
         </div>
