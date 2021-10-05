@@ -30,7 +30,7 @@
                             <img class="img-fluid" src="{{ asset('guest') }}/img/svg/paint-palette.svg" width="200"
                                 height="160" alt="img">
                         @else
-                            <img class="img-fluid" src="{{ asset('guest') }}/img/{{ $c_info->photo }}" alt="img">
+                            <img class="img-fluid" src="{{ asset('storage/contact/' . $c_info->photo) }}" alt="img">
                         @endif
                     </div>
                     <div class="col">

@@ -55,9 +55,9 @@
         </div>
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class="{{ strpos(Route::currentRouteName(), 'adm_dashboard') === 0 ? 'active' : '' }}"><a
-                        href="{{ route('usr_dashboard') }}"><i class="ft-home"></i><span
-                            class="menu-title" data-i18n="">Beranda</span></a>
+                <li class="{{ strpos(Route::currentRouteName(), 'usr_dashboard') === 0 ? 'active' : '' }} nav-item">
+                    <a href="{{ route('usr_dashboard') }}"><i class="ft-home"></i><span class="menu-title"
+                            data-i18n="">Beranda</span></a>
                 </li>
                 <li class="{{ strpos(Route::currentRouteName(), 'tablecontact') === 0 ? 'active' : '' }} nav-item"><a
                         href="{{ route('tablecontact') }}"><i class="ft-credit-card"></i><span class="menu-title"
@@ -65,7 +65,7 @@
                 </li>
                 <li class="dropdown dropdown-user nav-item">
 
-                    <form method="POST" action="{{ route('logout') }} ">
+                    <form method="POST" style="display:inline" action="{{ route('logout') }} ">
                         @csrf
 
                         <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
@@ -74,8 +74,9 @@
                         </x-responsive-nav-link>
                     </form>
 
+                </li>
+            </ul>
         </div>
-        </li>
     </div>
     <div class="navigation-background"></div>
     </div>

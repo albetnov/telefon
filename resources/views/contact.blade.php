@@ -38,7 +38,7 @@
                                     @if (empty($ct->photo))
                                         <img src="{{ asset('guest') }}/img/svg/paint-palette.svg" alt="img">
                                     @else
-                                        <img src="{{ asset('guest') }}/img/{{ $ct->photo }}" alt="img">
+                                        <img src="{{ asset('storage/contact/' . $ct->photo) }}" alt="img">
                                     @endif
                                 </div>
                                 <div class="card-body">

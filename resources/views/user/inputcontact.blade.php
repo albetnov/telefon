@@ -33,18 +33,20 @@
                     <div class="card">
                         <div class="card-content collapse show">
                             <div class="card-body">
-                                {{-- @error('con_code')
+                                @error('con_code')
                                     <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror --}}
-                                <form id="#" method="POST" action="{{ route('actct') }}" enctype="multipart/form-data">
+                                @enderror
+                                <form id="#" method="POST" action="{{ route('usrstorecontact') }}"
+                                    enctype="multipart/form-data">
+                                    @method('POST')
                                     @csrf
                                     <div class="ml-2 mt-2">
                                         <h6 class="ml-1">Pilih Country Code</h6>
                                         <fieldset class="form-group col-xl-2 col-lg-6 col-md-12">
                                             <select class="form-control mb-2" name="country_code">
-                                                {{-- @foreach ($con_code as $cc)
+                                                @foreach ($country_code as $cc)
                                                     <option value="{{ $cc->id }}">{{ $cc->code }}</option>
-                                                @endforeach --}}
+                                                @endforeach
                                             </select>
                                         </fieldset>
 

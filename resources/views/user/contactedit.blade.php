@@ -36,17 +36,19 @@
                                 @error('con_code')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <form id="#" method="POST" action="" enctype="multipart/form-data">
+                                <form id="#" method="POST" action="{{ route('usrupdatecontact', $ct->slug) }}"
+                                    enctype="multipart/form-data">
                                     @csrf
+                                    @method('PUT')
                                     <div class="ml-2 mt-2">
                                         <h6 class="ml-1">Pilih Country Code</h6>
                                         <fieldset class="form-group col-xl-2 col-lg-6 col-md-12">
                                             <select class="form-control mb-2" name="country_code">
-                                                {{-- @foreach ($con_code as $cc)
+                                                @foreach ($con_code as $cc)
                                                     <option value="{{ $cc->id }}"
-                                                        {{ $c_info->con_code->code === $cc->code ? 'selected' : '' }}>
+                                                        {{ $ct->con_code->code === $cc->code ? 'selected' : '' }}>
                                                         {{ $cc->code }}</option>
-                                                @endforeach --}}
+                                                @endforeach
                                             </select>
                                         </fieldset>
 
@@ -60,7 +62,8 @@
                                                     <fieldset class="form-group">
                                                         <input type="number"
                                                             class="form-control @error('nomor') is-invalid @enderror"
-                                                            name="nomor" placeholder="Nomor Kontak" value="">
+                                                            name="nomor" placeholder="Nomor Kontak"
+                                                            value="{{ old('nomor', $ct->nomor) }}">
                                                         @error('nomor')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -78,7 +81,8 @@
                                                     <fieldset class="form-group">
                                                         <input type="text"
                                                             class="form-control @error('nama_nomor') is-invalid @enderror"
-                                                            name="nama_nomor" placeholder="Nama Kontak" value="">
+                                                            name="nama_nomor" placeholder="Nama Kontak"
+                                                            value="{{ old('nama_nomor', $ct->nama_nomor) }}">
                                                         @error('nama_nomor')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -95,7 +99,8 @@
                                                     <fieldset class="form-group">
                                                         <textarea
                                                             class="form-control @error('deskripsi') is-invalid @enderror"
-                                                            name="deskripsi" cols="30" rows="10"></textarea>
+                                                            name="deskripsi" cols="30"
+                                                            rows="10">{{ old('deskripsi', $ct->deskripsi) }}</textarea>
                                                         @error('deskripsi')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -113,7 +118,8 @@
                                                     <fieldset class="form-group">
                                                         <input type="text"
                                                             class="form-control @error('alamat') is-invalid @enderror"
-                                                            name="alamat" placeholder="Alamat Kontak" value="">
+                                                            name="alamat" placeholder="Alamat Kontak"
+                                                            value="{{ old('alamat', $ct->alamat) }}">
                                                         @error('alamat')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -132,13 +138,13 @@
                                                 Gambar</label>
                                         </div> --}}
                                         <div class="form-group">
-                                            {{-- @empty(!$c_info->photo) --}}
-                                            <label>Current:</label><br>
-                                            <img src="{{ asset('storage/contact') }}" width="200px" alt="image"
-                                                class="mb-3 mr-1">
-                                            {{-- @else --}}
-                                            <label>Current: No Photo</label>
-                                            {{-- @endempty --}}
+                                            @empty(!$ct->photo)
+                                                <label>Current:</label><br>
+                                                <img src="{{ asset('storage/contact/' . $ct->photo) }}" width="200px"
+                                                    alt="image" class="mb-3 mr-1">
+                                            @else
+                                                <label>Current: No Photo</label>
+                                            @endempty
                                             <input type="file" class="form-control @error('photo') is-invalid @enderror"
                                                 name="photo">
                                             @error('photo')

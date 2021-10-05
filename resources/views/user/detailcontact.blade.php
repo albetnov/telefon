@@ -33,27 +33,29 @@
                     <div class="card">
                         <div class="card-content collapse show">
                             <div class="card-body m-2">
-
-                                <img src="{{ asset('storage/contact') }}" width="200px" alt="image"
-                                    class="mb-3 mr-1 float-left">
-
-                                <p>Photo : No Photo</p>
+                                @empty($contact->photo)
+                                    <p>Photo : No Photo</p>
+                                @else
+                                    <img src="{{ asset('storage/contact/' . $contact->photo) }}" width="200px" alt="image"
+                                        class="mb-3 mr-1 float-left">
+                                @endempty
 
                                 <div class="mt-1">
-                                    <p>Nama Kontak : </p>
-                                    <p>Nomor : </p>
-                                    <p>Alamat : </p>
-                                    <p>Deskripsi: </p>
-                                    <p>Dibuat: </p>
-                                    <p>Terakhir kali diubah: </p>
-                                    <p class="ml-1">Ditambah oleh : </p>
+                                    <p>Nama Kontak : {{ $contact->nama_nomor }}</p>
+                                    <p>Nomor : ({{ $contact->con_code->code }}) {{ $contact->nomor }}</p>
+                                    <p>Alamat : {{ $contact->alamat }}</p>
+                                    <p>Deskripsi : {{ $contact->deskripsi }}</p>
+                                    <p>Dibuat : {{ $contact->created_at }}</p>
+                                    <p>Terakhir kali diubah : {{ $contact->updated_at }}</p>
+                                    <p>Ditambah oleh: {{ $contact->user_by->nama }}</p>
                                 </div>
                                 <br>
                                 <br>
                             </div>
 
-                            <a href="/user/contactdata" class="btn btn-primary ml-3 mb-3 mt-3">Kembali</a>
-                            <a href="/user/contactdata/editcontact" class="la la-pencil btn btn-success"></a>
+                            <a href="{{ route('usrtablecontact') }}" class="btn btn-primary ml-3 mb-3 mt-3">Kembali</a>
+                            <a href="{{ route('usrcontactedit', $contact->slug) }}"
+                                class="la la-pencil btn btn-success"></a>
                         </div>
                     </div>
                 </div>

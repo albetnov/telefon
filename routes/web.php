@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,12 +53,22 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/admin/contact/actiondelete/{contact:slug}', [AdminController::class, 'del_contact'])->name('delc');
     });
     Route::group(['middleware' => ['rolesys:user']], function () {
-
+        //Dashboard
         Route::view('/user/dashboard', 'user.dashboard')->name('usr_dashboard');
-        Route::view('/user/contactdata', 'user.tablecontact')->name('tablecontact');
-        Route::view('/user/contactdata/detail', 'user.detailcontact')->name('detailcontact');
-        Route::view('/user/contactdata/inputcontact', 'user.inputcontact')->name('inputcontact');
-        Route::view('/user/contactdata/editcontact', 'user.contactedit')->name('contactedit');
+        //Manage Contact that created by himself
+        Route::resource('user/contact', UserController::class)->scoped(['contact' => 'slug'])->names([
+            'index' => 'usrtablecontact',
+            'show' => 'usrdetailcontact',
+            'create' => 'usrinputcontact',
+            'store' => 'usrstorecontact',
+            'update' => 'usrupdatecontact',
+            'edit' => 'usrcontactedit',
+            'destroy' => 'usrdeletecontact'
+        ]);
+        // Route::view('/user/contactdata', 'user.tablecontact')->name('tablecontact');
+        // Route::view('/user/contactdata/detail', 'user.detailcontact')->name('detailcontact');
+        // Route::view('/user/contactdata/inputcontact', 'user.inputcontact')->name('inputcontact');
+        // Route::view('/user/contactdata/editcontact', 'user.contactedit')->name('contactedit');
     });
 });
 
