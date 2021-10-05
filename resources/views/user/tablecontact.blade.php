@@ -55,7 +55,8 @@
                                                 <td>Hernando</td>
                                                 <td><a href="/user/contactdata/detail"
                                                         class="la la-eye btn btn-primary btn-sm"></a>
-                                                <td><a href="" class="la la-edit btn btn-success btn-sm"></a>
+                                                <td><a href="/user/contactdata/editcontact"
+                                                        class="la la-edit btn btn-success btn-sm"></a>
                                                 <td><button data-toggle="modal" data-target="#hapusData"
                                                         class="la la-trash btn btn-danger btn-sm"></button>
                                                     <div class="modal fade" id="hapusData" data-backdrop="static"

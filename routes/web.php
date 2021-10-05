@@ -57,6 +57,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::view('/user/contactdata', 'user.tablecontact')->name('tablecontact');
         Route::view('/user/contactdata/detail', 'user.detailcontact')->name('detailcontact');
         Route::view('/user/contactdata/inputcontact', 'user.inputcontact')->name('inputcontact');
+        Route::view('/user/contactdata/editcontact', 'user.contactedit')->name('contactedit');
     });
 });
 

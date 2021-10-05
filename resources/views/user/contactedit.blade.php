@@ -1,4 +1,4 @@
-@extends('templates.admin')
+@extends('templates.user')
 @section('title', 'Dasbor | Edit data kontak')
 @section('content')
 
@@ -14,7 +14,7 @@
                     <div class="breadcrumbs-top float-md-right">
                         <div class="breadcrumb-wrapper mr-1">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('adm_dashboard') }}">Beranda</a>
+                                <li class="breadcrumb-item"><a href="{{ route('usr_dashboard') }}">Beranda</a>
                                 </li>
                                 <li class="breadcrumb-item active"><a href="{{ route('tablecontact') }}">Data Kontak</a>
                                 </li>
@@ -36,18 +36,17 @@
                                 @error('con_code')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <form id="#" method="POST" action="{{ route('edc', $c_info->slug) }}"
-                                    enctype="multipart/form-data">
+                                <form id="#" method="POST" action="" enctype="multipart/form-data">
                                     @csrf
                                     <div class="ml-2 mt-2">
                                         <h6 class="ml-1">Pilih Country Code</h6>
                                         <fieldset class="form-group col-xl-2 col-lg-6 col-md-12">
                                             <select class="form-control mb-2" name="country_code">
-                                                @foreach ($con_code as $cc)
+                                                {{-- @foreach ($con_code as $cc)
                                                     <option value="{{ $cc->id }}"
                                                         {{ $c_info->con_code->code === $cc->code ? 'selected' : '' }}>
                                                         {{ $cc->code }}</option>
-                                                @endforeach
+                                                @endforeach --}}
                                             </select>
                                         </fieldset>
 
@@ -61,8 +60,7 @@
                                                     <fieldset class="form-group">
                                                         <input type="number"
                                                             class="form-control @error('nomor') is-invalid @enderror"
-                                                            name="nomor" placeholder="Nomor Kontak"
-                                                            value="{{ old('nomor', $c_info->nomor) }}">
+                                                            name="nomor" placeholder="Nomor Kontak" value="">
                                                         @error('nomor')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -80,8 +78,7 @@
                                                     <fieldset class="form-group">
                                                         <input type="text"
                                                             class="form-control @error('nama_nomor') is-invalid @enderror"
-                                                            name="nama_nomor" placeholder="Nama Kontak"
-                                                            value="{{ old('nama_nomor', $c_info->nama_nomor) }}">
+                                                            name="nama_nomor" placeholder="Nama Kontak" value="">
                                                         @error('nama_nomor')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -98,8 +95,7 @@
                                                     <fieldset class="form-group">
                                                         <textarea
                                                             class="form-control @error('deskripsi') is-invalid @enderror"
-                                                            name="deskripsi" cols="30"
-                                                            rows="10">{{ old('deskripsi', $c_info->deskripsi) }}</textarea>
+                                                            name="deskripsi" cols="30" rows="10"></textarea>
                                                         @error('deskripsi')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -117,8 +113,7 @@
                                                     <fieldset class="form-group">
                                                         <input type="text"
                                                             class="form-control @error('alamat') is-invalid @enderror"
-                                                            name="alamat" placeholder="Alamat Kontak"
-                                                            value="{{ old('alamat', $c_info->alamat) }}">
+                                                            name="alamat" placeholder="Alamat Kontak" value="">
                                                         @error('alamat')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -137,13 +132,13 @@
                                                 Gambar</label>
                                         </div> --}}
                                         <div class="form-group">
-                                            @empty(!$c_info->photo)
-                                                <label>Current:</label><br>
-                                                <img src="{{ asset('storage/contact') }}/{{ $c_info->photo }}"
-                                                    width="200px" alt="image" class="mb-3 mr-1">
-                                            @else
-                                                <label>Current: No Photo</label>
-                                            @endempty
+                                            {{-- @empty(!$c_info->photo) --}}
+                                            <label>Current:</label><br>
+                                            <img src="{{ asset('storage/contact') }}" width="200px" alt="image"
+                                                class="mb-3 mr-1">
+                                            {{-- @else --}}
+                                            <label>Current: No Photo</label>
+                                            {{-- @endempty --}}
                                             <input type="file" class="form-control @error('photo') is-invalid @enderror"
                                                 name="photo">
                                             @error('photo')

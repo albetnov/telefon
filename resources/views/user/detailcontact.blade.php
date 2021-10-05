@@ -53,7 +53,7 @@
                             </div>
 
                             <a href="/user/contactdata" class="btn btn-primary ml-3 mb-3 mt-3">Kembali</a>
-                            <a href="" class="la la-pencil btn btn-success"></a>
+                            <a href="/user/contactdata/editcontact" class="la la-pencil btn btn-success"></a>
                         </div>
                     </div>
                 </div>
