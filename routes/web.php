@@ -55,8 +55,8 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::view('/user/dashboard', 'user.dashboard')->name('usr_dashboard');
         Route::view('/user/contactdata', 'user.tablecontact')->name('tablecontact');
-        Route::view('/user/contactdata/{contact:slug}', 'user.detailcontact')->name('detailcontact');
-        // Route::view('/user/contactdata/inputcontact', 'user.inputcontact')->name('inputcontact');
+        Route::view('/user/contactdata/detail', 'user.detailcontact')->name('detailcontact');
+        Route::view('/user/contactdata/inputcontact', 'user.inputcontact')->name('inputcontact');
     });
 });
 

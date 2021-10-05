@@ -53,7 +53,7 @@
                                                 <td>MyName</td>
                                                 <td>Batam</td>
                                                 <td>Hernando</td>
-                                                <td><a href="/user/contactdata/detailcontact"
+                                                <td><a href="/user/contactdata/detail"
                                                         class="la la-eye btn btn-primary btn-sm"></a>
                                                 <td><a href="" class="la la-edit btn btn-success btn-sm"></a>
                                                 <td><button data-toggle="modal" data-target="#hapusData"
