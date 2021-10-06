@@ -60,8 +60,12 @@
                             data-i18n="">Beranda</span></a>
                 </li>
                 <li class="{{ strpos(Route::currentRouteName(), 'tablecontact') === 0 ? 'active' : '' }} nav-item"><a
-                        href="{{ route('tablecontact') }}"><i class="ft-credit-card"></i><span class="menu-title"
-                            data-i18n="">Data Kontak</span></a>
+                        href="{{ route('usrtablecontact') }}"><i class="ft-credit-card"></i><span
+                            class="menu-title" data-i18n="">Data Kontak</span></a>
+                </li>
+                <li class="{{ strpos(Route::currentRouteName(), 'tablecontact') === 0 ? 'active' : '' }} nav-item"><a
+                        href="{{ route('dataverifikasi') }}"><i class="ft-credit-card"></i><span
+                            class="menu-title" data-i18n="">Data Verifikasi</span></a>
                 </li>
                 <li class="dropdown dropdown-user nav-item">
 

@@ -55,6 +55,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['rolesys:user']], function () {
         //Dashboard
         Route::view('/user/dashboard', 'user.dashboard')->name('usr_dashboard');
+        Route::view('/user/dataverifikasi', 'user.dataverifikasi')->name('dataverifikasi');
         //Manage Contact that created by himself
         Route::resource('user/contact', UserController::class)->scoped(['contact' => 'slug'])->names([
             'index' => 'usrtablecontact',

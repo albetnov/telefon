@@ -19,9 +19,26 @@
                     </div>
                 </div>
             </div>
+            <div class="col-xl-6 col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Reset Password</h4>
+                    </div>
+                    <div class="card-block">
+                        <div class="card-body">
+                            <fieldset class="form-group">
+                                <form value="#" method="POST" action="#">
+                                    <input type="text" class="form-control" id="basicInput">
+                                    <button class="btn btn-primary mt-2 float-right">Reset</button>
+                                </form>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Chart -->
             <!-- eCommerce statistic -->
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-xl-4 col-lg-6 col-md-12">
                     <div class="card pull-up ecom-card-1 bg-white">
                         <div class="card-content ecom-card2 height-180">
@@ -64,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!--/ eCommerce statistic -->
 
             {{-- <!-- Statistics -->
