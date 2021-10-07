@@ -1,5 +1,5 @@
 @extends('templates.user')
-@section('title', 'Dasbor | Data Kontak')
+@section('title', 'Dasbor | Ajukan Verifikasi')
 @section('content')
 
 
@@ -31,18 +31,91 @@
                     <div class="card">
                         <div class="card-content collapse show">
                             <div class="card-body">
-
-                                <div class="input-group">
-                                    <div class="input-group-text ml-1">
-                                        <input class="ml-1 mr-1" class="form-check-input mt-0" type="radio" value=""
-                                            aria-label="Radio button for following text input">
-                                    </div>
-                                    <input readonly type="text" class="form-control col-5"
-                                        aria-label="Text input with radio button" value="(62+)12389129">
-                                </div>
-                                <br>
-                                <a href="#" class="btn btn-warning float-right mb-2">Ajukan Verifikasi</a>
-
+                                @if (isset($data))
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nomor</th>
+                                                <th>Nama Nomor</th>
+                                                <th>Status</th>
+                                                <th>Dibuat</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($data as $dt)
+                                                <tr>
+                                                    <td>({{ $dt->contact->con_code->code }}) {{ $dt->contact->nomor }}
+                                                    </td>
+                                                    <td>{{ $dt->contact->nama_nomor }}</td>
+                                                    @if ($dt->status === 'approved')
+                                                        <td>Disetujui</td>
+                                                    @elseif($dt->status === 'rejected')
+                                                        <td>Ditolak</td>
+                                                    @else
+                                                        <td>Sedang Menunggu</td>
+                                                    @endif
+                                                    <td>{{ $dt->created_at }}</td>
+                                                    @if ($dt->status === 'approved')
+                                                        <td>No Action</td>
+                                                    @else
+                                                        <td><button class="btn btn-danger btn-sm" data-toggle="modal"
+                                                                data-target="#hapusData{{ $dt->id }}"><i
+                                                                    class="la la-trash"></i></button></td>
+                                                        <div class="modal fade" id="hapusData{{ $dt->id }}"
+                                                            data-backdrop="static" data-keyboard="false" tabindex="-1"
+                                                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="staticBackdropLabel">
+                                                                            Hapus Data?</h5>
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Yakin hapus data, {{ $dt->contact->nama_nomor }}?
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">Tidak.</button>
+                                                                        <form style="display:inline" method="post"
+                                                                            action="{{ route('usrdelreq', $dt->id) }}">
+                                                                            @csrf
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Ya,
+                                                                                Hapus.</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                @endif
+                                @if (!isset($pending) || (isset($pending) && $pending != true))
+                                    <form action="{{ route('usrsaveverify') }}" method="POST">
+                                        @csrf
+                                        @error('req_verify')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                        <select class="form-control" name="req_verify" id="num_select">
+                                            @foreach ($contact as $ct)
+                                                <option value="{{ $ct->id }}">({{ $ct->con_code->code }})
+                                                    {{ $ct->nomor }} -
+                                                    {{ $ct->nama_nomor }}</option>
+                                            @endforeach
+                                        </select>
+                                        <br>
+                                        <button type="submit" class="btn btn-warning float-right mb-2">Ajukan
+                                            Verifikasi</button>
+                                    </form>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -53,3 +126,7 @@
     <!-- Basic Tables end -->
 
 @endsection
+@stack('scripts')
+<script>
+    $
+</script>

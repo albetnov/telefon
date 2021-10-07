@@ -40,12 +40,15 @@
                                     <p>Photo : No Photo</p>
                                 @endempty
                                 <div class="mt-1">
-                                    <p>Nama Kontak : {{ $c_info->nama_nomor }} </p>
+                                    <p>Nama Kontak : {{ $c_info->nama_nomor }}</p>
                                     <p>Nomor : ({{ $c_info->con_code->code }}) {{ $c_info->nomor }}</p>
                                     <p>Alamat : {{ $c_info->alamat }}</p>
                                     <p>Deskripsi: {{ $c_info->deskripsi }}</p>
                                     <p>Dibuat: {{ $c_info->created_at }}</p>
                                     <p>Terakhir kali diubah: {{ $c_info->updated_at }}</p>
+                                    @if ($c_info->status === 'verified')
+                                        <p>Status: Terverifikasi</p>
+                                    @endif
                                     <p class="ml-1">Ditambah oleh : {{ $c_info->user_by->nama }}</p>
                                 </div>
                                 <br>

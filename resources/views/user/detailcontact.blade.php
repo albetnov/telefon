@@ -47,6 +47,9 @@
                                     <p>Deskripsi : {{ $contact->deskripsi }}</p>
                                     <p>Dibuat : {{ $contact->created_at }}</p>
                                     <p>Terakhir kali diubah : {{ $contact->updated_at }}</p>
+                                    @if ($contact->status === 'verified')
+                                        <p>Status: Terverifikasi</p>
+                                    @endif
                                     <p>Ditambah oleh: {{ $contact->user_by->nama }}</p>
                                 </div>
                                 <br>

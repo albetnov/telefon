@@ -15,7 +15,7 @@ class Contact extends Model
     protected $table = 'telepon';
     protected $primaryKey = 'id';
     protected $guard = ['id', 'created_at', 'updated_at', 'slug'];
-    protected $fillable = ['nomor', 'nama_nomor', 'alamat', 'deskripsi', 'photo', 'created_by_id', 'country_code'];
+    protected $fillable = ['nomor', 'nama_nomor', 'alamat', 'deskripsi', 'photo', 'created_by_id', 'country_code', 'status'];
 
     public function getSlugOptions(): SlugOptions
     {

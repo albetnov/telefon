@@ -35,8 +35,14 @@
                     </div>
                     <div class="col">
                         <p>Nomor: ({{ $c_info->con_code->code }}) {{ $c_info->nomor }}<br />
-                            Nama: {{ $c_info->nama_nomor }}<br />
-                            Dibuat oleh: {{ $c_info->user_by->nama }}</p>
+                            Nama: {{ $c_info->nama_nomor }}
+                            @if ($c_info->status == 'verified')
+                                <span class="badge badge-pill alert-success"><i
+                                        class="bi bi-patch-check-fill text-success"></i>
+                                    Verified</span>
+                            @endif<br />
+                            Dibuat oleh: {{ $c_info->user_by->nama }}
+                        </p>
                     </div>
                     <div class="col">
                         <p>Alamat: {{ $c_info->alamat }}</p>

@@ -194,7 +194,8 @@ class AdminController extends Controller
                 'nama_nomor' => 'required|string|min:1|max:56',
                 'alamat' => 'required|string|min:1|max:128',
                 'deskripsi' => 'required|string|min:1|max:1024',
-                'photo' => 'mimes:jpg,jpeg,png|max:4096'
+                'photo' => 'mimes:jpg,jpeg,png|max:4096',
+                'verified' => 'required|string'
             ]
         );
         $data = [
@@ -204,6 +205,7 @@ class AdminController extends Controller
             'alamat' => $request->alamat,
             'deskripsi' => $request->deskripsi,
             'created_by_id' => Auth::user()->id,
+            'status' => $request->verified
         ];
         $photo = $request->photo;
         if ($photo) {
@@ -241,7 +243,8 @@ class AdminController extends Controller
                 'nama_nomor' => 'required|string|min:1|max:56',
                 'alamat' => 'required|string|min:1|max:128',
                 'deskripsi' => 'required|string|min:1|max:1024',
-                'photo' => 'mimes:jpg,jpeg,png|max:4096'
+                'photo' => 'mimes:jpg,jpeg,png|max:4096',
+                'verified' => 'required|string'
             ]
         );
         $data = [
@@ -249,7 +252,8 @@ class AdminController extends Controller
             'nomor' => $request->nomor,
             'nama_nomor' => $request->nama_nomor,
             'alamat' => $request->alamat,
-            'deskripsi' => $request->deskripsi
+            'deskripsi' => $request->deskripsi,
+            'status' => $request->verified
         ];
         $photo = $request->photo;
         if ($photo) {

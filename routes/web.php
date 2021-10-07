@@ -55,7 +55,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['rolesys:user']], function () {
         //Dashboard
         Route::view('/user/dashboard', 'user.dashboard')->name('usr_dashboard');
-        Route::view('/user/dataverifikasi', 'user.dataverifikasi')->name('dataverifikasi');
+        Route::get('/user/verify', [UserController::class, 'showverify'])->name('usrverify');
+        Route::post('/user/verify', [UserController::class, 'store_verify'])->name('usrsaveverify');
+        Route::post('/user/verify/{requestverify}', [UserController::class, 'del_verify'])->name('usrdelreq');
+        // Route::view('/user/verify', 'user.dataverifikasi')->name('dataverifikasi');
         //Manage Contact that created by himself
         Route::resource('user/contact', UserController::class)->scoped(['contact' => 'slug'])->names([
             'index' => 'usrtablecontact',
@@ -66,10 +69,6 @@ Route::group(['middleware' => ['auth']], function () {
             'edit' => 'usrcontactedit',
             'destroy' => 'usrdeletecontact'
         ]);
-        // Route::view('/user/contactdata', 'user.tablecontact')->name('tablecontact');
-        // Route::view('/user/contactdata/detail', 'user.detailcontact')->name('detailcontact');
-        // Route::view('/user/contactdata/inputcontact', 'user.inputcontact')->name('inputcontact');
-        // Route::view('/user/contactdata/editcontact', 'user.contactedit')->name('contactedit');
     });
 });
 

@@ -54,6 +54,7 @@
                         </div>
                     @endforeach
                 @endif
+                {{ $search->links() }}
             </div>
         </section>
 

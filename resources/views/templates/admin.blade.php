@@ -67,9 +67,9 @@
                         href="{{ route('tableuser') }}"><i class="ft-credit-card"></i><span class="menu-title"
                             data-i18n="">Data Pengguna</span></a>
                 </li>
-                <li class="{{ strpos(Route::currentRouteName(), 'tablecontact') === 0 ? 'active' : '' }} nav-item"><a
-                        href="{{ route('dataverifikasi') }}"><i class="ft-credit-card"></i><span
-                            class="menu-title" data-i18n="">Data Verifikasi</span></a>
+                <li class="{{-- strpos(Route::currentRouteName(),'')===0?'active':'' --}} nav-item"><a href="#"><i class="ft-credit-card"></i><span
+                            class="menu-title" data-i18n="">Data
+                            Verifikasi</span></a>
                 </li>
                 <li class="{{ strpos(Route::currentRouteName(), 'tablecc') === 0 ? 'active' : '' }} nav-item"><a
                         href="{{ route('tablecc') }}"><i class="ft-credit-card"></i><span class="menu-title"

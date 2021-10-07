@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\CountryCode;
+use App\Models\RequestVerify;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -14,6 +15,8 @@ class UserController extends Controller
     {
         if ($optional === 'validation') {
             return Contact::with('con_code', 'user_by')->where('id', $id)->first();
+        } else if ($optional === 'reqverif') {
+            return RequestVerify::where('created_by_id', Auth::user()->id);
         }
         return Contact::with('con_code', 'user_by')->where('created_by_id', Auth::user()->id);
     }
@@ -185,6 +188,65 @@ class UserController extends Controller
             'tipe' => 'success',
             'pesan' => 'Kontak berhasil dihapus'
         ];
+        return redirect()->back()->with($notif);
+    }
+
+    public function showverify()
+    {
+        if ($this->getUserContact('reqverif')->where('status', 'pending')->count() > 0) {
+            return view('user.dataverifikasi', ['data' => $this->getUserContact('reqverif')->get(), 'pending' => true]);
+        } else if ($this->getUserContact('reqverif')->count() > 0) {
+            return view('user.dataverifikasi', ['data' => $this->getUserContact('reqverif')->get(), 'contact' => $this->getUserContact()->lazy()]);
+        }
+        return view('user.dataverifikasi', ['contact' => $this->getUserContact()->lazy()]);
+    }
+
+    public function store_verify(Request $request)
+    {
+        $id = $request->req_verify;
+        $this->validateUser($id);
+        $request->validate([
+            'req_verify' => 'required|integer'
+        ]);
+        $data = [
+            'contact_id' => $id,
+            'created_by_id' => Auth::user()->id,
+            'status' => 'pending'
+        ];
+        $query = RequestVerify::create($data);
+        if ($query) {
+            $notif = [
+                'tipe' => 'success',
+                'pesan' => 'Permintaan berhasil diajukan.'
+            ];
+        } else {
+            $notif = [
+                'tipe' => 'error',
+                'pesan' => 'Permintaan gagal dibuat.'
+            ];
+        }
+        return redirect()->back()->with($notif);
+    }
+
+    /**
+     * @param \App\Models\RequestVerify $reqver
+     * @return \Illuminate\Http\Response
+     */
+    public function del_verify(RequestVerify $reqver)
+    {
+        $this->validateUser($reqver->contact_id);
+        $query = RequestVerify::where('id', $reqver->id)->delete();
+        if ($query) {
+            $notif = [
+                'tipe' => 'success',
+                'pesan' => 'Data berhasil dihapus.'
+            ];
+        } else {
+            $notif = [
+                'tipe' => 'error',
+                'pesan' => 'data gagal di hapus.'
+            ];
+        }
         return redirect()->back()->with($notif);
     }
 }

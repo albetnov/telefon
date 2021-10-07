@@ -23,6 +23,7 @@ class Telepon extends Migration
             $table->string('photo', 225)->nullable();
             $table->unsignedBigInteger("created_by_id");
             $table->unsignedBigInteger('country_code');
+            $table->enum('status', ['default', 'verified'])->default('default');
             $table->foreign('country_code')->references('id')->on('country_code')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('created_by_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

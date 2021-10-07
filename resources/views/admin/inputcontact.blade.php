@@ -125,6 +125,28 @@
                                             </div>
                                         </div>
 
+                                        <div class="col-xl-11 col-lg-6 col-md-12">
+                                            <div class="card">
+                                                <div class="card-block">
+
+                                                    <h6>Verifikasi?</h6>
+                                                    <fieldset class="form-group">
+                                                        <select name="verified"
+                                                            class="form-control @error('verified') is-invalid @enderror">
+                                                            <option value="default" selected>-
+                                                            </option>
+                                                            <option value="verified">Ya
+                                                            </option>
+                                                        </select>
+                                                        @error('verified')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
+                                                    </fieldset>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <h6 class="ml-1">Pilih gambar kontak</h6>
                                         {{-- <div class="input-group mb-3">
                                              <div class="custom-file">
