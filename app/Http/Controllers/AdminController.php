@@ -9,9 +9,53 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Models\RequestVerify;
 
 class AdminController extends Controller
 {
+
+    public function dashboard()
+    {
+        $data = [
+            'user' => User::where('level', 'user')->count(),
+            'contact' => Contact::count(),
+            'verifikasi' => RequestVerify::where('status', 'pending')->count(),
+            'pesan' => CSContact::count()
+        ];
+        return view('admin.dashboard', $data);
+    }
+
+    public function editcuracc(User $user, Request $request)
+    {
+        if (isset($request->type) && $request->type === '_curpass') {
+            $request->validate([
+                'newpass' => 'required_with:conpass|same:conpass|string|min:8|max:128',
+                'conpass' => 'string|min:8|max:128'
+            ]);
+            User::where('id', $user->id)->update(['password' => bcrypt($request->newpass)]);
+            $notif = [
+                'tipe' => 'success',
+                'pesan' => 'Password berhasil diperbarui'
+            ];
+            return redirect()->back()->with($notif);
+        }
+        $request->validate(
+            [
+                'nama' => 'required|string|min:1|max:64',
+                'username' => 'required|string|min:1|max:48|unique:users,username,' . Auth::user()->id
+            ]
+        );
+        $data = [
+            'nama' => $request->nama,
+            'username' => $request->username
+        ];
+        User::where('id', $user->id)->update($data);
+        $notif = [
+            'tipe' => 'success',
+            'pesan' => 'Akun berhasil diperbarui'
+        ];
+        return redirect()->back()->with($notif);
+    }
 
     public function pesandata()
     {

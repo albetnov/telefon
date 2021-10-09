@@ -24,7 +24,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/search', [ContactController::class, 'search_contact'])->name('search');
     Route::group(['middleware' => ['rolesys:admin']], function () {
         //Dashboard
-        Route::view('/admin/dashboard', 'admin/dashboard')->name('adm_dashboard');
+        // Route::view('/admin/dashboard', 'admin/dashboard')->name('adm_dashboard');
+        Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('adm_dashboard');
+        Route::post('/admin/edit/current/{user}', [AdminController::class, 'editcuracc'])->name('editcuracc');
         //Manage Pesan
         Route::get('/admin/pesan', [AdminController::class, 'pesandata'])->name('tablepesan');
         Route::get('/admin/pesan/detail/{cscontact}', [AdminController::class, 'pesandetail'])->name('pesandetail');
@@ -52,7 +54,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/admin/contact/detail/{contact:slug}', [AdminController::class, 'detailcontact'])->name('detailcontact');
         Route::post('/admin/contact/actiondelete/{contact:slug}', [AdminController::class, 'del_contact'])->name('delc');
         //Verification Data
-        Route::get('/admin/verifikasi', [AdminController::class, 'panel'])->name('tablecontact');
+        Route::get('/admin/verifikasi', [AdminController::class, 'panel'])->name('tableverifikasi');
     });
     Route::group(['middleware' => ['rolesys:user']], function () {
         //Dashboard
