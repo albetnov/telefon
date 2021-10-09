@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
+
     public function pesandata()
     {
         return view('admin/tablepesan', ['tablepesan' => CSContact::all()->lazy()]);

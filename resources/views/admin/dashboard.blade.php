@@ -9,20 +9,12 @@
             </div>
             <div class="content-body">
                 <!-- Chart -->
-
-
-                <div class="row match-height">
-                    <div class="col-12">
-                        <div class="">
-            <div id=" gradient-line-chart1" class="height-250 GradientlineShadow1">
-                        </div>
-                    </div>
-                </div>
             </div>
             <!-- Chart -->
             <!-- eCommerce statistic -->
+
             <div class="row">
-                <div class="col-xl-4 col-lg-6 col-md-12">
+                <div class="col-xl-3 col-lg-6 col-md-12">
                     <div class="card pull-up ecom-card-1 bg-white">
                         <div class="card-content ecom-card2 height-180">
                             <h5 class="text-muted danger position-absolute p-1">Data Pengguna</h5>
@@ -35,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-6 col-md-12">
+                <div class="col-xl-3 col-lg-6 col-md-12">
                     <div class="card pull-up ecom-card-1 bg-white">
                         <div class="card-content ecom-card2 height-180">
                             <h5 class="text-muted info position-absolute p-1">Data Kontak</h5>
@@ -48,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-12">
+                <div class="col-xl-3 col-lg-12">
                     <div class="card pull-up ecom-card-1 bg-white">
                         <div class="card-content ecom-card2 height-180">
                             <h5 class="text-muted warning position-absolute p-1">Permintaan Verifikasi</h5>
@@ -62,7 +54,7 @@
                     </div>
                 </div>
 
-                <div class="col-xl-4 col-lg-12">
+                <div class="col-xl-3 col-lg-12">
                     <div class="card pull-up ecom-card-1 bg-white">
                         <div class="card-content ecom-card2 height-180">
                             <h5 class="text-muted warning position-absolute p-1">Pesan Pengguna</h5>
@@ -76,6 +68,49 @@
                     </div>
                 </div>
             </div>
+
+            <section id="card-headings">
+                <div class="row">
+                    <div class="col-md-9 col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title" id="heading-multiple-thumbnails">Pengaturan Akun</h4>
+                                <a class="heading-elements-toggle">
+                                    <i class="la la-ellipsis-v font-medium-3"></i>
+                                </a>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="col-xl-12 col-lg-6 col-md-12">
+                                        <div class="card">
+                                            <div class="card-block">
+                                                <div class="card-body">
+                                                    <form action="" method="POST">
+                                                        <fieldset class="form-group">
+                                                            <input type="text" class="form-control mb-1" id="basicInput"
+                                                                placeholder="Nama">
+                                                            <input type="text" class="form-control" id="basicInput"
+                                                                placeholder="Username">
+                                                            <button class="btn btn-warning mt-2"><i class="la la-key">
+                                                                </i> Ganti
+                                                                Password</button>
+
+                                                            <button class="btn btn-primary mt-2"><i class="la la-pencil">
+                                                                </i> Ubah
+                                                                Akun</button>
+                                                        </fieldset>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
             <!--/ eCommerce statistic -->
 
             {{-- <!-- Statistics -->

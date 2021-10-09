@@ -51,6 +51,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/admin/contact/actionedit/{contact:slug}', [AdminController::class, 'edit_contact'])->name('edc');
         Route::get('/admin/contact/detail/{contact:slug}', [AdminController::class, 'detailcontact'])->name('detailcontact');
         Route::post('/admin/contact/actiondelete/{contact:slug}', [AdminController::class, 'del_contact'])->name('delc');
+        //Verification Data
+        Route::get('/admin/verifikasi', [AdminController::class, 'panel'])->name('tablecontact');
     });
     Route::group(['middleware' => ['rolesys:user']], function () {
         //Dashboard
