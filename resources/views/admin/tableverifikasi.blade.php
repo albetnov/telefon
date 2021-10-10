@@ -48,7 +48,7 @@
                                             @foreach ($verifikasip as $vrf)
                                                 <tr>
                                                     <th scope="row">{{ !empty($i) ? ++$i : ($i = 1) }}</th>
-                                                    <td>{{ $vrf->contact->nomor }}</td>
+                                                    <td>({{ $vrf->contact->con_code->code }}){{ $vrf->contact->nomor }}</td>
                                                     <td>{{ $vrf->contact->nama_nomor }}</td>
                                                     <td>{{ $vrf->contact->user_by->nama }}</td>
                                                     <td>{{ $vrf->created_at }}</td>
