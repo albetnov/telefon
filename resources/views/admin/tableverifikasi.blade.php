@@ -48,7 +48,8 @@
                                             @foreach ($verifikasip as $vrf)
                                                 <tr>
                                                     <th scope="row">{{ !empty($i) ? ++$i : ($i = 1) }}</th>
-                                                    <td>({{ $vrf->contact->con_code->code }}){{ $vrf->contact->nomor }}</td>
+                                                    <td>({{ $vrf->contact->con_code->code }}){{ $vrf->contact->nomor }}
+                                                    </td>
                                                     <td>{{ $vrf->contact->nama_nomor }}</td>
                                                     <td>{{ $vrf->contact->user_by->nama }}</td>
                                                     <td>{{ $vrf->created_at }}</td>
@@ -101,7 +102,8 @@
                                             @foreach ($verifikasih as $vrfh)
                                                 <tr>
                                                     <th scope="row">{{ !empty($i2) ? ++$i2 : ($i2 = 1) }}</th>
-                                                    <td>({{ $vrfh->contact->con_code->nomor }}){{ $vrfh->contact->nomor }}</td>
+                                                    <td>({{ $vrfh->contact->con_code->code }}){{ $vrfh->contact->nomor }}
+                                                    </td>
                                                     <td>{{ $vrfh->contact->nama_nomor }}</td>
                                                     <td>{{ $vrfh->contact->user_by->nama }}</td>
                                                     <td>{{ $vrfh->created_at }}</td>
