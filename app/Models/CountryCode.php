@@ -10,5 +10,6 @@ class CountryCode extends Model
     use HasFactory;
     protected $table = 'country_code';
     protected $primaryKey = 'id';
+    public $timestamps = false;
     protected $fillable = ['code', 'country'];
 }

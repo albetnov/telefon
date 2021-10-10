@@ -15,7 +15,7 @@ class CountryCode extends Migration
     {
         Schema::create('country_code', function (Blueprint $table) {
             $table->id();
-            $table->string('code', 12);
+            $table->string('code', 12)->unique();
             $table->string('country', 225);
         });
     }

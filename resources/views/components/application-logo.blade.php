@@ -1,0 +1,1 @@
+<img src="{{ asset('guest') }}/img/logoHalo!.png" width="100px">

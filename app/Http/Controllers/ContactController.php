@@ -11,12 +11,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return view('contact', ['contact' => Contact::with('con_code', 'user_by')->lazy()]);
-    }
-
-    public function contact_detail(Contact $contact)
-    {
-        return view('contactdetail', ['c_info' => $contact]);
+        return view('contact', ['contact' => Contact::with('con_code', 'user_by')->paginate(15)]);
     }
 
     public function send_contact(Request $req)
@@ -41,10 +36,15 @@ class ContactController extends Controller
         }
     }
 
+    public function contact_detail(Contact $contact)
+    {
+        return view('contactdetail', ['c_info' => $contact]);
+    }
+
     public function search_contact(Request $req)
     {
         $query = $req->input('query');
-        $search = Contact::join('users', 'users.id', '=', 'telepon.created_by_id')->join('country_code', 'country_code.id', '=', 'telepon.country_code')->where('nomor', 'LIKE', "%{$query}%")->orWhere('nama_nomor', 'LIKE', "%{$query}%")->orWhere('alamat', 'LIKE', "%{$query}%")->orWhere('deskripsi', 'LIKE', "%{$query}%")->orWhere('users.nama', 'LIKE', "%{$query}%")->orWhere('country_code.code', 'LIKE', "%{$query}%")->get();
+        $search = Contact::join('users', 'users.id', '=', 'telepon.created_by_id')->join('country_code', 'country_code.id', '=', 'telepon.country_code')->where('nomor', 'LIKE', "%{$query}%")->orWhere('nama_nomor', 'LIKE', "%{$query}%")->orWhere('alamat', 'LIKE', "%{$query}%")->orWhere('deskripsi', 'LIKE', "%{$query}%")->orWhere('users.nama', 'LIKE', "%{$query}%")->orWhere('country_code.code', 'LIKE', "%{$query}%")->paginate(5);
         if (empty($query) || count($search) <= 0) {
             $data = [
                 'search' => null

@@ -19,7 +19,7 @@ class CsContact extends Migration
             $table->string('email_cs')->unique();
             $table->string('subject_cs');
             $table->longText('message_cs');
-            $table->timestamps();
+            $table->datetime('created_at');
         });
     }
 
