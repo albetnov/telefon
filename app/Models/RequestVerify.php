@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Contact;
 
 class RequestVerify extends Model
 {
@@ -15,10 +16,5 @@ class RequestVerify extends Model
     public function contact()
     {
         return $this->belongsTo(Contact::class, 'contact_id');
-    }
-
-    public function user_by()
-    {
-        return $this->belongsTo(Contact::class, 'created_by_id');
     }
 }

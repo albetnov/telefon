@@ -31,7 +31,7 @@
                         <div class="card-content collapse show">
                             <div class="card-body">
                                 @if (isset($data))
-                                    <table class="table">
+                                    <table class="table" id="table1">
                                         <thead>
                                             <tr>
                                                 <th>Nomor</th>
@@ -125,7 +125,9 @@
     <!-- Basic Tables end -->
 
 @endsection
-@stack('scripts')
-<script>
-    $
-</script>
+@push('scripts')
+    <script>
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+@endpush

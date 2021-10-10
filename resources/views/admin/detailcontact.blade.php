@@ -53,8 +53,12 @@
                                 <br>
                                 <br>
                             </div>
-
-                            <a href="{{ route('tablecontact') }}" class="btn btn-primary ml-3 mb-3 mt-3">Kembali</a>
+                            @if (isset(request()->from) && request()->from === 'verify')
+                                <a href="{{ route('tableverifikasi') }}"
+                                    class="btn btn-primary ml-3 mb-3 mt-3">Kembali</a>
+                            @else
+                                <a href="{{ route('tablecontact') }}" class="btn btn-primary ml-3 mb-3 mt-3">Kembali</a>
+                            @endif
                             <a href="{{ route('contactedit', $c_info->slug) }}" class="la la-pencil btn btn-success"></a>
                         </div>
                     </div>

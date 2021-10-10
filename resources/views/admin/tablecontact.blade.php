@@ -33,7 +33,7 @@
                                 <a href="{{ route('inputcontact') }}"
                                     class="la la-plus btn btn-success btn-sm float-right mr-1"></a>
                                 <div class="table-responsive">
-                                    <table class="table mt-1">
+                                    <table class="table mt-1" id="table1">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -41,13 +41,13 @@
                                                 <th>Nama Nomor</th>
                                                 <th>Alamat</th>
                                                 <th>Dibuat oleh</th>
-                                                <th colspan="3" class="text-center">Aksi</th>
+                                                <th class="text-center">Aksi</th>
                                             </tr>
                                         </thead>
-                                        @foreach ($tablecontact as $ct)
-                                            <tbody>
+                                        <tbody>
+                                            @foreach ($tablecontact as $ct)
                                                 <tr>
-                                                    <th scope="row">{{ !empty($i) ? ++$i : ($i = 1) }}</th>
+                                                    <td scope="row">{{ !empty($i) ? ++$i : ($i = 1) }}</th>
                                                     <td>({{ $ct->con_code->code }}){{ $ct->nomor }}</td>
                                                     <td>{{ $ct->nama_nomor }}</td>
                                                     <td>{{ $ct->alamat }}</td>
@@ -82,7 +82,8 @@
                                                                             action="{{ route('delc', $ct->slug) }}">
                                                                             @csrf
                                                                             <button type="submit"
-                                                                                class="btn btn-primary">Ya, Hapus.</button>
+                                                                                class="btn btn-primary">Ya,
+                                                                                Hapus.</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -90,8 +91,8 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            </tbody>
-                                        @endforeach
+                                            @endforeach
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -104,3 +105,9 @@
     <!-- Basic Tables end -->
 
 @endsection
+@push('scripts')
+    <script>
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+@endpush

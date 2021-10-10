@@ -36,13 +36,20 @@
                             <div class="card mb-5">
                                 <div class="card-header">
                                     @if (empty($ct->photo))
-                                        <img src="{{ asset('guest') }}/img/svg/paint-palette.svg" alt="img">
+                                        <img src="{{ asset('user.png') }}" class="mx-auto" width="200" height="220"
+                                            alt="img">
                                     @else
-                                        <img src="{{ asset('storage/contact/' . $ct->photo) }}" alt="img">
+                                        <img src="{{ asset('storage/contact/' . $ct->photo) }}" alt="img" width="200"
+                                            height="220">
                                     @endif
                                 </div>
                                 <div class="card-body">
                                     <h4>Nomor: ({{ $ct->con_code->code }}){{ $ct->nomor }}</h4>
+                                    @if ($ct->status === 'verified')
+                                        <span class="badge badge-pill alert-success"><i
+                                                class="bi bi-patch-check-fill text-success"></i>
+                                            Verified</span>
+                                    @endif
                                     <p>
                                         Nama: {{ $ct->nama_nomor }}<br>
                                         Alamat: {{ $ct->alamat }}<br>

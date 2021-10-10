@@ -64,7 +64,7 @@ class AdminController extends Controller
 
     public function verifikasidata()
     {
-        return view('admin/tableverifikasi', ['tableverifikasi' => CSContact::all()->lazy()]);
+        return view('admin/tableverifikasi', ['verifikasip' => RequestVerify::where('status', 'pending')->lazy(), 'verifikasih' => RequestVerify::where('status', '!=', 'pending')->lazy()]);
     }
 
     public function ccdata()
@@ -365,5 +365,28 @@ class AdminController extends Controller
     public function contact_detail(Contact $contact)
     {
         return view('admin/contactdetail', ['c_info' => $contact]);
+    }
+
+    public function verify_manager(RequestVerify $rv, Request $request)
+    {
+        $notif = [
+            'tipe' => 'success'
+        ];
+        if (isset($request->approve)) {
+            $verifdata = ['status' => 'approved'];
+            Contact::where('id', $rv->contact_id)->update(['status' => 'verified']);
+            $notif['pesan'] = 'Permintaan berhasil disetujui';
+        } else if (isset($request->reject)) {
+            $verifdata = ['status' => 'rejected'];
+            $notif['pesan'] = 'Permintaan berhasil ditolak';
+        } else if (isset($request->destroy)) {
+            RequestVerify::where('id', $rv->id)->delete();
+            $notif['pesan'] = 'Permintaan berhasil dihapus';
+            return redirect()->back()->with($notif);
+        } else {
+            abort(404);
+        }
+        RequestVerify::where('id', $rv->id)->update($verifdata);
+        return redirect()->back()->with($notif);
     }
 }

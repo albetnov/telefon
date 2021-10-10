@@ -53,7 +53,7 @@
                     </div>
                     <div class="row m-3">
                         <div class="col">
-                            @if (isset($_GET['from']) && $_GET['from'] === 'search')
+                            @if (isset(request()->from) && request()->from === 'search')
                                 <button class="btn btn-primary"
                                     onclick="location.href='{{ route('search') }}?query={{ $_GET['query'] }}'">Kembali</button>
                             @else

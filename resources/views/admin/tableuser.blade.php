@@ -31,7 +31,7 @@
                         <div class="card-content collapse show">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table mt-1">
+                                    <table class="table mt-1" id="table1">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -39,13 +39,13 @@
                                                 <th>Username</th>
                                                 <th>Dibuat</th>
                                                 <th>Diubah</th>
-                                                <th colspan="3" class="text-center">Aksi</th>
+                                                <th class="text-center">Aksi</th>
                                             </tr>
                                         </thead>
-                                        @foreach ($tableuser as $tu)
-                                            <tbody>
+                                        <tbody>
+                                            @foreach ($tableuser as $tu)
                                                 <tr>
-                                                    <th scope="row">{{ !empty($i) ? ++$i : ($i = 1) }}</th>
+                                                    <td scope="row">{{ !empty($i) ? ++$i : ($i = 1) }}</td>
                                                     <td>{{ $tu->nama }}</td>
                                                     <td>{{ $tu->username }}</td>
                                                     <td>{{ $tu->created_at }}</td>
@@ -90,8 +90,8 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            </tbody>
-                                        @endforeach
+                                            @endforeach
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -104,3 +104,9 @@
     <!-- Basic Tables end -->
 
 @endsection
+@push('scripts')
+    <script>
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+@endpush

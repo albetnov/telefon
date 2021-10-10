@@ -17,6 +17,8 @@ class UserController extends Controller
             return Contact::with('con_code', 'user_by')->where('id', $id)->first();
         } else if ($optional === 'reqverif') {
             return RequestVerify::where('created_by_id', Auth::user()->id);
+        } else if ($optional === 'statscheck') {
+            return Contact::with('con_code', 'user_by')->where('created_by_id', Auth::user()->id)->where('status', 'default');
         }
         return Contact::with('con_code', 'user_by')->where('created_by_id', Auth::user()->id);
     }
@@ -196,9 +198,9 @@ class UserController extends Controller
         if ($this->getUserContact('reqverif')->where('status', 'pending')->count() > 0) {
             return view('user.dataverifikasi', ['data' => $this->getUserContact('reqverif')->get(), 'pending' => true]);
         } else if ($this->getUserContact('reqverif')->count() > 0) {
-            return view('user.dataverifikasi', ['data' => $this->getUserContact('reqverif')->get(), 'contact' => $this->getUserContact()->lazy()]);
+            return view('user.dataverifikasi', ['data' => $this->getUserContact('reqverif')->get(), 'contact' => $this->getUserContact('statscheck')->lazy()]);
         }
-        return view('user.dataverifikasi', ['contact' => $this->getUserContact()->lazy()]);
+        return view('user.dataverifikasi', ['contact' => $this->getUserContact('statscheck')->lazy()]);
     }
 
     public function store_verify(Request $request)

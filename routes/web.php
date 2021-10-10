@@ -24,7 +24,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/search', [ContactController::class, 'search_contact'])->name('search');
     Route::group(['middleware' => ['rolesys:admin']], function () {
         //Dashboard
-        // Route::view('/admin/dashboard', 'admin/dashboard')->name('adm_dashboard');
         Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('adm_dashboard');
         Route::post('/admin/edit/current/{user}', [AdminController::class, 'editcuracc'])->name('editcuracc');
         //Manage Pesan
@@ -55,6 +54,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/admin/contact/actiondelete/{contact:slug}', [AdminController::class, 'del_contact'])->name('delc');
         //Verification Data
         Route::get('/admin/verifikasi', [AdminController::class, 'verifikasidata'])->name('tableverifikasi');
+        Route::post('/admin/action/verify/{requestverify}', [AdminController::class, 'verify_manager'])->name('subverify');
     });
     Route::group(['middleware' => ['rolesys:user']], function () {
         //Dashboard

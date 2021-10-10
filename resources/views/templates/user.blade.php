@@ -19,23 +19,22 @@
     <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
     <!-- BEGIN VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/vendors.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/vendors/css/charts/chartist.css">
     <!-- END VENDOR CSS-->
     <!-- BEGIN CHAMELEON  CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/app-lite.css">
     <!-- END CHAMELEON  CSS-->
     <!-- BEGIN Page Level CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/core/colors/palette-gradient.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/pages/dashboard-ecommerce.css">
+
     <link rel="stylesheet" href="{{ asset('guest/vendor/toastr/toastr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('simple-datatables/style.css') }}">
     @stack('styles')
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
     <!-- END Custom CSS-->
 </head>
 
-<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar bg-light" data-open="click"
+<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click"
     data-menu="vertical-menu" data-color="bg-chartbg" data-col="2-columns">
 
 
@@ -45,8 +44,9 @@
             <ul class="nav navbar-nav flex-row">
                 <div class="col align-self-center">
 
-                    <li class="nav-item mr-auto"><a class="navbar-brand" href="index.html"><img class="brand-logo"
-                                alt="Chameleon admin logo" src="{{ asset('guest') }}/img/logoHalo!.png" />
+                    <li class="nav-item mr-auto"><a class="navbar-brand" href="{{ route('home') }}"><img
+                                class="brand-logo" alt="Chameleon admin logo"
+                                src="{{ asset('guest') }}/img/logoHalo!.png" />
                             <h3 class="brand-text">Halo!</h3>
                         </a></li>
                 </div>
@@ -131,25 +131,16 @@
         </div>
     </footer>
 
-    <!-- BEGIN VENDOR JS-->
     <script src="{{ asset('admin') }}/vendors/js/vendors.min.js" type="text/javascript"></script>
-    <!-- BEGIN VENDOR JS-->
-    <!-- BEGIN PAGE VENDOR JS-->
-    <script src="{{ asset('admin') }}/vendors/js/charts/chartist.min.js" type="text/javascript"></script>
-    <!-- END PAGE VENDOR JS-->
-    <!-- BEGIN CHAMELEON  JS-->
     <script src="{{ asset('admin') }}/js/core/app-menu-lite.js" type="text/javascript"></script>
     <script src="{{ asset('admin') }}/js/core/app-lite.js" type="text/javascript"></script>
-    <!-- END CHAMELEON  JS-->
-    <!-- BEGIN PAGE LEVEL JS-->
-    <script src="{{ asset('admin') }}/js/scripts/pages/dashboard-lite.js" type="text/javascript"></script>
-    <!-- END PAGE LEVEL JS-->
     <script src="{{ asset('guest/vendor/toastr/toastr.min.js') }}"></script>
     @if (session()->has('pesan'))
         <script>
             toastr['{{ session('tipe') }}']('{{ session('pesan') }}')
         </script>
     @endif
+    <script src="{{ asset('simple-datatables/simple-datatables.js') }}"></script>
     @stack('scripts')
 </body>
 

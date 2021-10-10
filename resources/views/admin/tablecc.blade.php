@@ -33,7 +33,7 @@
                                 <a href="{{ route('addcc') }}"
                                     class="la la-plus btn btn-success btn-sm float-right mr-1"></a>
                                 <div class="table-responsive">
-                                    <table class="table mt-1">
+                                    <table class="table mt-1" id="table1">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -42,8 +42,8 @@
                                                 <th colspan="2" class="text-center">Aksi</th>
                                             </tr>
                                         </thead>
-                                        @foreach ($tablecc as $tcc)
-                                            <tbody>
+                                        <tbody>
+                                            @foreach ($tablecc as $tcc)
                                                 <tr>
                                                     <th scope="row">{{ !empty($i) ? ++$i : ($i = 1) }}</th>
                                                     <td>{{ $tcc->country }}</td>
@@ -87,8 +87,8 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            </tbody>
-                                        @endforeach
+                                            @endforeach
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -101,3 +101,9 @@
     <!-- Basic Tables end -->
 
 @endsection
+@push('scripts')
+    <script>
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+@endpush
