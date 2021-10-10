@@ -42,12 +42,6 @@
                 </label>
             </div>
 
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
             <div class="flex items-center justify-end mt-4">
 
                 <x-button class="ml-3">
@@ -62,7 +56,7 @@
 
             </div>
             <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
-                {{ __('Didn\'t have account?') }}
+                {{ __('Tidak punya akun?') }}
             </a>
         </form>
     </x-auth-card>
