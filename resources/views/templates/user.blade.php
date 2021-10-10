@@ -61,11 +61,11 @@
                 </li>
                 <li
                     class="{{ strpos(Route::currentRouteName(), 'usrtablecontact') === 0 ? 'active' : '' }} nav-item">
-                    <a href="{{ route('usrtablecontact') }}"><i class="ft-credit-card"></i><span
+                    <a href="{{ route('usrtablecontact') }}"><i class="ft-phone-call"></i><span
                             class="menu-title" data-i18n="">Data Kontak</span></a>
                 </li>
                 <li class="{{ strpos(Route::currentRouteName(), 'usrverify') === 0 ? 'active' : '' }} nav-item"><a
-                        href="{{ route('usrverify') }}"><i class="ft-credit-card"></i><span class="menu-title"
+                        href="{{ route('usrverify') }}"><i class="ft-check"></i><span class="menu-title"
                             data-i18n="">Ajukan Verifikasi</span></a>
                 </li>
                 <li class="dropdown dropdown-user nav-item">
