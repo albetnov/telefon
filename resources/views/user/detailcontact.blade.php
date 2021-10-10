@@ -5,7 +5,6 @@
 
     <div class="app-content content">
         <div class="content-wrapper">
-            <div class="content-wrapper-before"></div>
             <div class="content-header row">
                 <div class="content-header-left col-md-4 col-12 mb-2">
                     <h3 class="content-header-title">Detail Kontak</h3>
@@ -16,7 +15,8 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('usr_dashboard') }}">Beranda</a>
                                 </li>
-                                <li class="breadcrumb-item active"><a href="{{ route('tablecontact') }}">Data Kontak</a>
+                                <li class="breadcrumb-item active"><a href="{{ route('usrtablecontact') }}">Data
+                                        Kontak</a>
                                 </li>
                                 <li class="breadcrumb-item active">Detail Kontak
                                 </li>

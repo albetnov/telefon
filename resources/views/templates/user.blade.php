@@ -35,7 +35,7 @@
     <!-- END Custom CSS-->
 </head>
 
-<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click"
+<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar bg-light" data-open="click"
     data-menu="vertical-menu" data-color="bg-chartbg" data-col="2-columns">
 
 
@@ -66,7 +66,7 @@
                 </li>
                 <li class="{{ strpos(Route::currentRouteName(), 'usrverify') === 0 ? 'active' : '' }} nav-item"><a
                         href="{{ route('usrverify') }}"><i class="ft-credit-card"></i><span class="menu-title"
-                            data-i18n="">Data Verifikasi</span></a>
+                            data-i18n="">Ajukan Verifikasi</span></a>
                 </li>
                 <li class="dropdown dropdown-user nav-item">
 
@@ -87,36 +87,33 @@
     </div>
 
     <!-- fixed-top-->
-    <nav
-        class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light">
-        <div class="navbar-wrapper">
-            <div class="navbar-container content">
-                <div class="collapse navbar-collapse show" id="navbar-mobile">
-                    <ul class="nav navbar-nav mr-auto float-left">
-                        <li class="nav-item d-block d-md-none"><a class="nav-link nav-menu-main menu-toggle hidden-xs"
-                                href="#"><i class="ft-menu"></i></a></li>
-                        <li class="nav-item dropdown navbar-search">
-                            <ul class="dropdown-menu">
-                                <li class="arrow_box">
-                                    <form>
-                                        <div class="input-group search-box">
-                                            <div class="position-relative has-icon-right full-width">
-                                                <input class="form-control" id="search" type="text"
-                                                    placeholder="Search here...">
-                                                <div class="form-control-position navbar-search-close"><i
-                                                        class="ft-x"> </i></div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </li>
-                            </ul>
+    <nav>
+
+        <div class="collapse navbar-collapse show" id="navbar-mobile">
+            <ul class="nav navbar-nav mr-auto float-left">
+                <li class="nav-item d-block d-md-none"><a class="nav-link nav-menu-main menu-toggle hidden-xs"
+                        href="#"><i class="ft-menu"></i></a></li>
+                <li class="nav-item dropdown navbar-search">
+                    <ul class="dropdown-menu">
+                        <li class="arrow_box">
+                            <form>
+                                <div class="input-group search-box">
+                                    <div class="position-relative has-icon-right full-width">
+                                        <input class="form-control" id="search" type="text"
+                                            placeholder="Search here...">
+                                        <div class="form-control-position navbar-search-close"><i
+                                                class="ft-x"> </i></div>
+                                    </div>
+                                </div>
+                            </form>
                         </li>
                     </ul>
-                    <ul class="nav navbar-nav float-right">
+                </li>
+            </ul>
+            <ul class="nav navbar-nav float-right">
 
-                    </ul>
-                </div>
-            </div>
+            </ul>
+
         </div>
     </nav>
 

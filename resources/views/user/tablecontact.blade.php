@@ -5,7 +5,6 @@
 
     <div class="app-content content">
         <div class="content-wrapper">
-            <div class="content-wrapper-before"></div>
             <div class="content-header row">
                 <div class="content-header-left col-md-4 col-12 mb-2">
                     <h3 class="content-header-title">Data Kontak</h3>
@@ -32,7 +31,7 @@
                         <div class="card-content collapse show">
                             <div class="card-body">
                                 <a href="{{ route('usrinputcontact') }}"
-                                    class="la la-plus btn btn-success float-right mr-1"></a>
+                                    class="la la-plus btn btn-success btn-sm float-right mr-1"></a>
                                 <div class="table-responsive">
                                     <table class="table mt-1">
                                         <thead>
@@ -56,9 +55,9 @@
                                                     <td>{{ $cu->user_by->nama }}</td>
                                                     <td><a href="{{ route('usrdetailcontact', $cu->slug) }}"
                                                             class="la la-eye btn btn-primary btn-sm"></a>
-                                                    <td><a href="{{ route('usrcontactedit', $cu->slug) }}"
+                                                        <a href="{{ route('usrcontactedit', $cu->slug) }}"
                                                             class="la la-edit btn btn-success btn-sm"></a>
-                                                    <td><button data-toggle="modal"
+                                                        <button data-toggle="modal"
                                                             data-target="#hapusData{{ $cu->id }}"
                                                             class="la la-trash btn btn-danger btn-sm"></button>
                                                         <div class="modal fade" id="hapusData{{ $cu->id }}"

@@ -5,7 +5,6 @@
 
     <div class="app-content content">
         <div class="content-wrapper">
-            <div class="content-wrapper-before"></div>
             <div class="content-header row">
                 <div class="content-header-left col-md-4 col-12 mb-2">
                     <h3 class="content-header-title">Form Edit Kontak</h3>
@@ -153,7 +152,7 @@
                                         </div>
                                         {{-- </div> --}}
 
-                                        <a href="{{ route('tablecontact') }}"
+                                        <a href="{{ route('usrtablecontact') }}"
                                             class="btn btn-primary ml-1 mb-1">Kembali</a>
                                         <button class="btn btn-success ml-1 mb-1">Selesai</button>
                                     </div>

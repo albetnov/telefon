@@ -4,7 +4,6 @@
 
     <div class="app-content content">
         <div class="content-wrapper">
-            <div class="content-wrapper-before"></div>
             <div class="content-header row">
             </div>
             <div class="content-body">
@@ -19,7 +18,7 @@
                         <div class="card-content ecom-card2 height-180">
                             <h5 class="text-muted danger position-absolute p-1">Data Pengguna</h5>
                             <div>
-                                <i class="ft-pie-chart danger font-large-1 float-right p-1"></i>
+                                <i class="ft-user danger font-large-1 float-right p-1"></i>
                             </div>
                             <div class="progress-stats-container ct-golden-section height-75 position-relative pt-3  ">
                                 <h1 class="container">{{ $user }}</h1>
@@ -32,7 +31,7 @@
                         <div class="card-content ecom-card2 height-180">
                             <h5 class="text-muted info position-absolute p-1">Data Kontak</h5>
                             <div>
-                                <i class="ft-activity info font-large-1 float-right p-1"></i>
+                                <i class="ft-phone-call info font-large-1 float-right p-1"></i>
                             </div>
                             <div class="progress-stats-container ct-golden-section height-75 position-relative pt-3">
                                 <h1 class="container">{{ $contact }}</h1>
@@ -45,7 +44,7 @@
                         <div class="card-content ecom-card2 height-180">
                             <h5 class="text-muted warning position-absolute p-1">Permintaan Verifikasi</h5>
                             <div>
-                                <i class="ft-shopping-cart warning font-large-1 float-right p-1"></i>
+                                <i class="ft-check warning font-large-1 float-right p-1"></i>
                             </div>
                             <div class="progress-stats-container ct-golden-section height-75 position-relative pt-3">
                                 <h1 class="container">{{ $verifikasi }}</h1>
@@ -57,9 +56,9 @@
                 <div class="col-xl-3 col-lg-12">
                     <div class="card pull-up ecom-card-1 bg-white">
                         <div class="card-content ecom-card2 height-180">
-                            <h5 class="text-muted warning position-absolute p-1">Pesan Pengguna</h5>
+                            <h5 class="text-muted success position-absolute p-1">Pesan Pengguna</h5>
                             <div>
-                                <i class="ft-shopping-cart warning font-large-1 float-right p-1"></i>
+                                <i class="ft-message-circle success font-large-1 float-right p-1"></i>
                             </div>
                             <div class="progress-stats-container ct-golden-section height-75 position-relative pt-3">
                                 <h1 class="container">{{ $pesan }}</h1>

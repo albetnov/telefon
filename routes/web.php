@@ -54,7 +54,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/admin/contact/detail/{contact:slug}', [AdminController::class, 'detailcontact'])->name('detailcontact');
         Route::post('/admin/contact/actiondelete/{contact:slug}', [AdminController::class, 'del_contact'])->name('delc');
         //Verification Data
-        Route::get('/admin/verifikasi', [AdminController::class, 'panel'])->name('tableverifikasi');
+        Route::get('/admin/verifikasi', [AdminController::class, 'verifikasidata'])->name('tableverifikasi');
     });
     Route::group(['middleware' => ['rolesys:user']], function () {
         //Dashboard

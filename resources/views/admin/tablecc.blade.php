@@ -5,7 +5,6 @@
 
     <div class="app-content content">
         <div class="content-wrapper">
-            <div class="content-wrapper-before"></div>
             <div class="content-header row">
                 <div class="content-header-left col-md-4 col-12 mb-2">
                     <h3 class="content-header-title">Data Country Code</h3>
@@ -31,7 +30,8 @@
                     <div class="card">
                         <div class="card-content collapse show">
                             <div class="card-body">
-                                <a href="{{ route('addcc') }}" class="la la-plus btn btn-success float-right mr-1"></a>
+                                <a href="{{ route('addcc') }}"
+                                    class="la la-plus btn btn-success btn-sm float-right mr-1"></a>
                                 <div class="table-responsive">
                                     <table class="table mt-1">
                                         <thead>
@@ -49,9 +49,9 @@
                                                     <td>{{ $tcc->country }}</td>
                                                     <td>{{ $tcc->code }}</td>
                                                     <td><a href="{{ route('ccedit', $tcc->id) }}"
-                                                            class="la la-edit btn btn-success"></a>
-                                                    </td>
-                                                    <td><button data-toggle="modal"
+                                                            class="la la-edit btn btn-success btn-sm"></a>
+
+                                                        <button data-toggle="modal"
                                                             data-target="#hapusData{{ $tcc->id }}"
                                                             class="la la-trash btn btn-danger btn-sm"></button>
                                                         <div class="modal fade" id="hapusData{{ $tcc->id }}"
@@ -71,7 +71,8 @@
                                                                         Yakin hapus data, {{ $tcc->country }}?
                                                                     </div>
                                                                     <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary"
+                                                                        <button type="button"
+                                                                            class="btn btn-secondary btn-sm"
                                                                             data-dismiss="modal">Tidak.</button>
                                                                         <form style="display:inline" method="post"
                                                                             action="{{ route('actdelcc', $tcc->id) }}">

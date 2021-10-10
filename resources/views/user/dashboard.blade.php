@@ -4,38 +4,104 @@
 
     <div class="app-content content">
         <div class="content-wrapper">
-            <div class="content-wrapper-before"></div>
-            <div class="content-header row">
-            </div>
-            <div class="content-body">
-                <!-- Chart -->
-
-
-                <div class="row match-height">
-                    <div class="col-12">
-                        <div class="">
-            <div id=" gradient-line-chart1" class="height-250 GradientlineShadow1">
+            <section id="card-headings">
+                <div class="row">
+                    <div class="col-md-9 col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title" id="heading-multiple-thumbnails">Pengaturan Akun</h4>
+                                <a class="heading-elements-toggle">
+                                    <i class="la la-ellipsis-v font-medium-3"></i>
+                                </a>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="col-xl-12 col-lg-6 col-md-12">
+                                        <div class="card">
+                                            <div class="card-block">
+                                                <div class="card-body">
+                                                    <form id="edcuracc"
+                                                        action="{{ route('editcuracc', Auth::user()->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @if ($errors->any())
+                                                            <div class="alert alert-danger">
+                                                                Validasi Gagal
+                                                                <ul>
+                                                                    @foreach ($errors->all() as $error)
+                                                                        <li>{{ $error }}</li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        @endif
+                                                        <fieldset class="form-group">
+                                                            <input type="text" class="form-control mb-1" id="basicInput"
+                                                                name="nama" placeholder="Nama"
+                                                                value="{{ old('nama', Auth::user()->nama) }}">
+                                                            <input type="text" class="form-control" id="basicInput"
+                                                                name="username" placeholder="Username"
+                                                                value="{{ old('username', Auth::user()->username) }}">
+                                                    </form>
+                                                    <button type="button" class="btn btn-warning mt-2" data-toggle="modal"
+                                                        data-target="#gantiPass"><i class="la la-key">
+                                                        </i> Ganti
+                                                        Password</button>
+                                                    <div class="modal fade" id="gantiPass" data-backdrop="static"
+                                                        data-keyboard="false" tabindex="-1"
+                                                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="staticBackdropLabel">
+                                                                        Ganti Password</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('editcuracc', Auth::user()->id) }}"
+                                                                        method="POST" id="chcurpass">
+                                                                        @csrf
+                                                                        <input type="hidden" value="_curpass" name="type">
+                                                                        <div class="form-group">
+                                                                            <input type="password"
+                                                                                placeholder="New Password" name="newpass"
+                                                                                class="form-control">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <input type="password"
+                                                                                placeholder="Confirm New Password"
+                                                                                name="conpass" class="form-control">
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Batal</button>
+                                                                    <button type="submit" class="btn btn-primary"
+                                                                        form="chcurpass">Ganti Password</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" form="edcuracc" class="btn btn-primary mt-2"><i
+                                                            class="la la-pencil">
+                                                        </i> Ubah
+                                                        Akun</button>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-6 col-lg-6 col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Reset Password</h4>
-                    </div>
-                    <div class="card-block">
-                        <div class="card-body">
-                            <fieldset class="form-group">
-                                <form value="#" method="POST" action="#">
-                                    <input type="text" class="form-control" id="basicInput">
-                                    <button class="btn btn-primary mt-2 float-right">Reset</button>
-                                </form>
-                            </fieldset>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            </section>
             <!-- Chart -->
             <!-- eCommerce statistic -->
             {{-- <div class="row">

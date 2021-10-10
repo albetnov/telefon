@@ -62,6 +62,11 @@ class AdminController extends Controller
         return view('admin/tablepesan', ['tablepesan' => CSContact::all()->lazy()]);
     }
 
+    public function verifikasidata()
+    {
+        return view('admin/tableverifikasi', ['tableverifikasi' => CSContact::all()->lazy()]);
+    }
+
     public function ccdata()
     {
         return view('admin/tablecc', ['tablecc' => CountryCode::all()->lazy()]);

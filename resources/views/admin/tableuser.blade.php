@@ -5,7 +5,6 @@
 
     <div class="app-content content">
         <div class="content-wrapper">
-            <div class="content-wrapper-before"></div>
             <div class="content-header row">
                 <div class="content-header-left col-md-4 col-12 mb-2">
                     <h3 class="content-header-title">Data Pengguna</h3>
@@ -52,13 +51,13 @@
                                                     <td>{{ $tu->created_at }}</td>
                                                     <td>{{ $tu->updated_at }}</td>
                                                     <td><a href="{{ route('userdetail', $tu->id) }}"
-                                                            class="la la-eye btn btn-primary"></a></td>
-                                                    <td><a href="{{ route('useredit', $tu->id) }}"
-                                                            class="la la-edit btn btn-success"></a>
-                                                    </td>
-                                                    <td><button type="button" data-toggle="modal"
+                                                            class="la la-eye btn btn-primary btn-sm"></a>
+                                                        <a href="{{ route('useredit', $tu->id) }}"
+                                                            class="la la-edit btn btn-success btn-sm"></a>
+
+                                                        <button type="button" data-toggle="modal"
                                                             data-target="#hapusData{{ $tu->id }}"
-                                                            class="la la-trash btn btn-danger"></button>
+                                                            class="la la-trash btn btn-danger btn-sm"></button>
                                                         <div class="modal fade" id="hapusData{{ $tu->id }}"
                                                             data-backdrop="static" data-keyboard="false" tabindex="-1"
                                                             aria-labelledby="staticBackdropLabel" aria-hidden="true">
