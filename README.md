@@ -42,4 +42,4 @@ username: hernando <br />
 password: hernando123
 
 ## Pertanyaan
-Sihlakan ajukan bugs atau masalah di jendela [Issues](https://github.com/albetnov/telefon/issues "Issues"). Atau DM Instagram saya [Albet Novendo](https://instagram.com/al_nv23 "Albet Novendo") atau rekan saya [Hernando](https://instagram.com/hernando__ong "Hernando).
+Sihlakan ajukan bugs atau masalah di jendela [Issues](https://github.com/albetnov/telefon/issues "Issues"). Atau DM Instagram saya [Albet Novendo](https://instagram.com/al_nv23 "Albet Novendo") atau rekan saya [Hernando](https://instagram.com/hernando__ong "Hernando").
